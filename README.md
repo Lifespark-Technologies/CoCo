@@ -4,7 +4,7 @@ A tool to help estimate hotspots of COVID-19 infection
 LIFESPARK TECHNOLOGIES PVT. LTD.
 
 
-GOALS:
+## GOALS:
 1) Proactive tracing of locations where people converge (i.e. the local supermarket, clubhouse etc.)
 2) Using collected location trails, in case someone tests positive we can trace where these trails intersect with hotspots and flag them.
 3) Using this data to optimally allocate resources at these hotspots for testing, containment and fumigation efforts.
@@ -12,7 +12,7 @@ GOALS:
 have visited) indicates a common source. Our method aims to find such hard-totrace sources as well.
 5) Providing this data to epidemiologists and virologists to speed up the process of getting an effective vaccine out in the market.
 
-CONCEPT	
+## CONCEPT	
 The coronavirus infection has two important properties that have led to the current pandemic: exponential spread and symptoms that are similar to existing ailments{[1][2]}. It’s high infectivity is especially a cause for concern. 
 
 Measures for reducing the impact of infection broadly hinge on one aspect: Reducing the exponent. This can be achieved through aggressive contact tracing and isolation of positive cases{[4][5]}. While testing every person is impractical, informed decisions regarding the deployment of testing and quarantine resources can substantially reduce spread and improve outcomes{[3]}.
@@ -29,7 +29,7 @@ The prevalence of smartphones and the internet makes mobile applications ideal c
 
 The demographic and lifestyle/health data collected will include prescribed drugs, pre-existing conditions, other factors that can help medical professionals and epidemiologists gain more insight into clinical management and potentially aid development of vaccines. 
 
-PRIVACY
+## PRIVACY
 Most countries that have made significant headway against the epidemic have temporarily suspended privacy concerns. Singapore’s TraceTogether app traces contact between people through the proximity of their phones. The app generates random ‘Contact Event Numbers (CEN)’ which are exchanged when two devices come in close proximity with each other. These CENs are linked to user entries in a central database that are accessible to the authorities{[8]}. While this grants anonymity to individuals from each other, it does not grant them anonymity from the authorities. The system also relies on the honesty of users{[8]}. 
 
 South Korean authorities have implemented one of the most successful screening systems in the form of drive-thru testing. While successful, it completely does away with privacy by using phone numbers to report results{[6]}. There have been cases of community ostracization and witch-hunts, which highlight the need for privacy in this matter{[6][7]}. 
@@ -37,25 +37,25 @@ South Korean authorities have implemented one of the most successful screening s
 Our system largely relies on self-reporting to prevent privacy intrusions. We believe that making individuals aware of the impact that the epidemic can have on not just themselves, but their families and loved ones, sufficiently incentivizes voluntary participation. Comparing various methods of collecting data, and their levels of privacy (Table 1{[8]}), we have come to the conclusion that using an encrypted, multi proxy-server based approach works best to satisfy privacy requirements and constraints for scalability.
 
 
-IMPLEMENTATION
-CONTACT TRACING 
+## IMPLEMENTATION
+### CONTACT TRACING 
 
 Bluetooth based Proximity Detection
 Bluetooth based contact-tracing works by detecting proximity between cellphones through data broadcast using the Bluetooth communication protocol. Since the Bluetooth radio protocol is meant for short-range data transfer, it aligns perfectly with such usage. 
 
 When two phones are in close proximity, they exchange “Contact Event Numbers”, which are randomly generated numbers (tokens) unique to every such occurrence. Every phone stores all such tokens. In the event that a user reports positive, their tokens are uploaded to a public database. Every user’s phone periodically checks against these public tokens and notifies the user if any token in their list matches those of positive cases. In this case, the user is advised to test themselves. None of these tokens have any personally identifiable information. Nor are the health authorities aware of the owners of these tokens, hence testing and self-reporting are the responsibility of  the user. This method is very accurate and scalable for person-to-person transmission detection{[8]}.
 
-GPS 
+### GPS 
 For methods of transmission besides direct person-to-person infection, we collect GPS location data. GPS location has an accuracy of upto 2 meters. Anonymized location data from individuals is used to create a map of population movement density. This allows for detection of non-human transmission by potentially linking positive cases without contact but with common points on the location trail. With such a technique  it is possible to approximately calculate where the fomite-based risk of infection is the highest; i.e, where there may be inanimate objects capable of transmitting infection. Based on this data, a risk map of such locations can be traced to show comparative risks of different geographical areas. 
 
 GPS data also enables determination of hyperlocal points of convergence where resources can be directed for testing and containment efforts in case an infection is detected in the neighbourhood. A proximity alert is sent to users to avoid travelling to areas where the risk of infection is high.
 
-All GPS data is anonymized and securely sent to the main server through proxy servers. Individual trails will not be public, just their intersections and local hotspots.
+All GPS data is anonymized and securely sent to the main server through proxy servers. Individual trails will not be public, just their intersections and local hotspots. <GPS data transfer algo to be added soon>
 
-HEALTH DATA
+### HEALTH DATA
 In addition to location and proximity data, we aim to include a short questionnaire in the process of building the user profile. This will comprise demographic{[9]} and health data (Age group, Gender, Pre-existing health conditions etc.) and lifestyle data (Shopping habits, Eating habits, etc). Users with high risk of and from the infection will be advised to take precautionary measures. Such data for positive cases will also help improve clinical care protocols by revealing co-morbidities, risk-factors and adverse drug interactions. 
 
-REFERENCES
+## REFERENCES
 1) Similarities between COVID-19 and Influenza. WHO-int. Mar 2020 [Online] Available: https://www.who.int/news-room/q-a-detail/q-a-similarities-and-differences-covid-19-and-influenza
 
 2) Coronavirus and Acute Respiratory Diseases (COVID-19, SARS-Cov and MERS). March 2020 [Online]. 
