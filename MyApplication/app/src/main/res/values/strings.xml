@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">COVID-19 Tracker</string>
+    <string name="report">Report</string>
+    <string name="register">Register</string>
+    <string name="name">Name</string>
+    <string name="submit">Submit</string>
+    <string name="location_data">Location Data</string>
+</resources>
