@@ -1,4 +1,5 @@
-# Proactive-Resource-Direction-Platform
+# ORACLE 
+## Optimized Resource Allocation & Cluster Localization and Estimation
 A tool to help estimate hotspots of COVID-19 infection
 
 LIFESPARK TECHNOLOGIES PVT. LTD.
