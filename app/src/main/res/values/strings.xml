@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">TestBluetooth</string>
-
+    <string name="app_name">Covid-19</string>
     <string name="ble_uuid">55c700f4-5093-40b3-bcb2-49d88038eb85 </string>
+    <string name="report">Report</string>
+    <string name="register">Register</string>
+    <string name="name">Name</string>
+    <string name="submit">Submit</string>
+    <string name="location_data">Location Data</string>
 </resources>
