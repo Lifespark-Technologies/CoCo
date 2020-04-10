@@ -1,5 +1,5 @@
-# ORACLE 
-## Optimized Resource Allocation & Cluster Localization and Estimation
+# CoCo
+## Corona Control
 A tool to help estimate hotspots of COVID-19 infection
 
 LIFESPARK TECHNOLOGIES PVT. LTD.
@@ -51,7 +51,7 @@ For methods of transmission besides direct person-to-person infection, we collec
 
 GPS data also enables determination of hyperlocal points of convergence where resources can be directed for testing and containment efforts in case an infection is detected in the neighbourhood. A proximity alert is sent to users to avoid travelling to areas where the risk of infection is high.
 
-All GPS data is anonymized and securely sent to the main server through proxy servers. Individual trails will not be public, just their intersections and local hotspots. <GPS data transfer algo to be added soon>
+All GPS data is anonymized and securely sent to the main server through proxy servers. Individual trails will not be public, just their intersections and local hotspots. <ORACLE Protocol>
 
 ### HEALTH DATA
 In addition to location and proximity data, we aim to include a short questionnaire in the process of building the user profile. This will comprise demographic{[9]} and health data (Age group, Gender, Pre-existing health conditions etc.) and lifestyle data (Shopping habits, Eating habits, etc). Users with high risk of and from the infection will be advised to take precautionary measures. Such data for positive cases will also help improve clinical care protocols by revealing co-morbidities, risk-factors and adverse drug interactions. 
