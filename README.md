@@ -39,6 +39,8 @@ Our system largely relies on self-reporting to prevent privacy intrusions. We be
 
 
 ## IMPLEMENTATION
+### ORACLE
+### Optimized Resource Allocation & Cluster Localization Estimation
 ### CONTACT TRACING 
 
 Bluetooth based Proximity Detection
@@ -56,7 +58,7 @@ All GPS data is anonymized and securely sent to the main server through proxy se
 ### HEALTH DATA
 In addition to location and proximity data, we aim to include a short questionnaire in the process of building the user profile. This will comprise demographic{[9]} and health data (Age group, Gender, Pre-existing health conditions etc.) and lifestyle data (Shopping habits, Eating habits, etc). Users with high risk of and from the infection will be advised to take precautionary measures. Such data for positive cases will also help improve clinical care protocols by revealing co-morbidities, risk-factors and adverse drug interactions. 
 
-### GPS ANONYMIZTION ALGORITHM
+### GPS ANONYMIZATION ALGORITHM
 
 ![GPS Anonymization Algorithm](https://github.com/Lifespark-Technologies/CoCo/blob/master/docs/gps_method.PNG)
 
