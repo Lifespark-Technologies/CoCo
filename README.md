@@ -58,7 +58,7 @@ In addition to location and proximity data, we aim to include a short questionna
 
 ### GPS ANONYMIZTION ALGORITHM
 
-![GPS Algo]["docs/gps_method.PNG"]
+![GPS Algo][https://github.com/Lifespark-Technologies/CoCo/blob/master/docs/gps_method.PNG]
 
 ## REFERENCES
 1) Similarities between COVID-19 and Influenza. WHO-int. Mar 2020 [Online] Available: https://www.who.int/news-room/q-a-detail/q-a-similarities-and-differences-covid-19-and-influenza
