@@ -56,6 +56,10 @@ All GPS data is anonymized and securely sent to the main server through proxy se
 ### HEALTH DATA
 In addition to location and proximity data, we aim to include a short questionnaire in the process of building the user profile. This will comprise demographic{[9]} and health data (Age group, Gender, Pre-existing health conditions etc.) and lifestyle data (Shopping habits, Eating habits, etc). Users with high risk of and from the infection will be advised to take precautionary measures. Such data for positive cases will also help improve clinical care protocols by revealing co-morbidities, risk-factors and adverse drug interactions. 
 
+### GPS ANONYMIZTION ALGORITHM
+
+![GPS Algo]["docs/gps_method.PNG"]
+
 ## REFERENCES
 1) Similarities between COVID-19 and Influenza. WHO-int. Mar 2020 [Online] Available: https://www.who.int/news-room/q-a-detail/q-a-similarities-and-differences-covid-19-and-influenza
 
