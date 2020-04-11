@@ -10,10 +10,13 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -21,17 +24,27 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.Result;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResult;
+import com.google.android.gms.location.LocationSettingsStates;
+import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
@@ -41,11 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button reportBtn;
     private Button registerBtn;
-    private Button getLocationData;
     final int LAUNCH_NEXT_ACTIVITY = 1;
     static final int ASK_PERMISSIONS = 10;
-
-
 
     @Override
     protected void onStart() {
@@ -53,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         if (!checkPermissions()) {
             requestPermissions();
         }
+
     }
 
     @Override
@@ -60,19 +71,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getLocationData = findViewById(R.id.get_location_data);
-        getLocationData.setVisibility(View.INVISIBLE);
         reportBtn = findViewById(R.id.report_button);
         registerBtn = findViewById(R.id.register_button);
-
-
-        getLocationData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LocationData.class);
-                startActivity(intent);
-            }
-        });
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        if(prefs.contains("name")) {
+            registerBtn.setVisibility(View.INVISIBLE);
+        }
 
         reportBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!checkPermissions()) {
+                if(!checkPermissions()) {
                     requestPermissions();
                 }
                 else {
@@ -104,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    //requests permissions from the user
+        //requests permissions from the user
     private void requestPermissions(){
         ActivityCompat.requestPermissions(
                 this,
@@ -113,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
-    @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == ASK_PERMISSIONS) {
@@ -130,9 +133,9 @@ public class MainActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK){
                 String user = data.getExtras().getString("name");
                 registerBtn.setVisibility(View.INVISIBLE);
-                getLocationData.setVisibility(View.VISIBLE);
                 Toast.makeText(getApplicationContext(), user, Toast.LENGTH_LONG).show();
             }
         }
     }
 }
+

@@ -1,16 +1,10 @@
 package com.example.myapplication;
 
-import android.annotation.SuppressLint;
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
-import android.media.MediaPlayer;
-import android.net.Uri;
-import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
-import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -25,20 +19,17 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
-public class BackgroundService extends Service {
+public class BackgroundLocationService extends Service {
 
     private FusedLocationProviderClient mFusedLocationClient;
     private String lat, lon;
-    Handler handler = new Handler();
-    FileOutputStream fOut;
-    ArrayList<String> arr = new ArrayList<>(12);
-    ArrayList<String> arr2 = new ArrayList<>(12);
-
+    ArrayList<String> arr = new ArrayList<>();
+    Random random = new Random();
+    private static final String TAG = "BACKGROUND SERVICE";
 
     @Nullable
     @Override
@@ -48,23 +39,14 @@ public class BackgroundService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        handler.post(runnableCode);
-        try {
-            fOut = openFileOutput("location_data", Context.MODE_PRIVATE);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return START_REDELIVER_INTENT;
-    }
-/* Use if needed for debugging
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
 
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        getLastLocation();
+        Log.d("Handlers", "Called on main thread");
+
+        return START_STICKY;
     }
-*/
-    @SuppressLint("MissingPermission")
+
     private void getLastLocation(){
         mFusedLocationClient.getLastLocation().addOnCompleteListener(
                 new OnCompleteListener<Location>() {
@@ -74,16 +56,11 @@ public class BackgroundService extends Service {
                         if (location == null) {
                             requestNewLocationData();
                         } else {
-                            lat = location.getLatitude() + "" + "\n";
-                            lon = location.getLongitude() + "" + "\n";
+                            lat = location.getLatitude() + "" + "\t";
+                            lon = location.getLongitude() + "";
+                            arr.add(lat + lon);
                             Toast.makeText(getApplicationContext(), lat + "///" + lon, Toast.LENGTH_LONG).show();
-                            try {
-                                fOut.write(lat.getBytes());
-                                fOut.write(lon.getBytes());
-                                fOut.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                            Log.d(TAG, "SERVICE IS RUNNING!!!");
                         }
                     }
                 });
@@ -98,7 +75,6 @@ public class BackgroundService extends Service {
         }
     };
 
-    @SuppressLint("MissingPermission")
     private void requestNewLocationData(){
 
         LocationRequest mLocationRequest = new LocationRequest();
@@ -112,15 +88,5 @@ public class BackgroundService extends Service {
                 mLocationRequest, mLocationCallback,
                 Looper.myLooper()
         );
-
     }
-
-    private Runnable runnableCode = new Runnable() {
-        @Override
-        public void run() {
-            getLastLocation();
-            Log.d("Handlers", "Called on main thread");
-            handler.postDelayed(this, 300000);
-        }
-    };
 }

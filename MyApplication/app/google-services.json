@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1080854342689",
+    "firebase_url": "https://flawless-psyche-273203.firebaseio.com",
+    "project_id": "flawless-psyche-273203",
+    "storage_bucket": "flawless-psyche-273203.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080854342689:android:13a48fed67d07226e44760",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1080854342689-pg6h9ijn100p5s0crrrcpmbisljcbvet.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPEv_9TKdWdmxCygY2T0gh04Y2RdaqNuE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1080854342689-pg6h9ijn100p5s0crrrcpmbisljcbvet.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
