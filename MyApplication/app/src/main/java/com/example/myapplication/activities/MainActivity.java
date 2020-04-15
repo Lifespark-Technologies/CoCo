@@ -1,54 +1,21 @@
-package com.example.myapplication;
+package com.example.myapplication.activities;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.ActivityManager;
-import android.app.AlarmManager;
-import android.app.AlertDialog;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Looper;
 import android.preference.PreferenceManager;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.PendingResult;
-import com.google.android.gms.common.api.Result;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationResult;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.LocationSettingsRequest;
-import com.google.android.gms.location.LocationSettingsResult;
-import com.google.android.gms.location.LocationSettingsStates;
-import com.google.android.gms.location.LocationSettingsStatusCodes;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-
-import java.util.List;
+import com.example.myapplication.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button registerBtn;
     final int LAUNCH_NEXT_ACTIVITY = 1;
     static final int ASK_PERMISSIONS = 10;
+    private final String TAG = "MAIN_ACTIVITY";
 
     @Override
     protected void onStart() {
@@ -74,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         reportBtn = findViewById(R.id.report_button);
         registerBtn = findViewById(R.id.register_button);
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        //make register buttono invisible if user has registered his name
         if(prefs.contains("name")) {
             registerBtn.setVisibility(View.INVISIBLE);
         }
@@ -108,22 +78,13 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-        //requests permissions from the user
+    //requests permissions from the user
     private void requestPermissions(){
         ActivityCompat.requestPermissions(
                 this,
                 new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                 ASK_PERMISSIONS
         );
-    }
-
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == ASK_PERMISSIONS) {
-            if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                // Granted. Start getting the location information
-            }
-        }
     }
 
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -134,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
                 String user = data.getExtras().getString("name");
                 registerBtn.setVisibility(View.INVISIBLE);
                 Toast.makeText(getApplicationContext(), user, Toast.LENGTH_LONG).show();
+                Log.d(TAG, "Registration complete!!");
+                //user has been registered
             }
         }
     }

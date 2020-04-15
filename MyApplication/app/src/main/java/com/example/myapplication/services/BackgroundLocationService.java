@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.services;
 
 import android.app.Service;
 import android.content.Intent;
@@ -20,7 +20,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
 public class BackgroundLocationService extends Service {
@@ -40,9 +39,10 @@ public class BackgroundLocationService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
+        //getting location using fused location listener
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         getLastLocation();
-        Log.d("Handlers", "Called on main thread");
+        Log.d(TAG, "Getting location");
 
         return START_STICKY;
     }
@@ -77,6 +77,7 @@ public class BackgroundLocationService extends Service {
 
     private void requestNewLocationData(){
 
+        //first time the service is run
         LocationRequest mLocationRequest = new LocationRequest();
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         mLocationRequest.setInterval(0);

@@ -1,6 +1,5 @@
-package com.example.myapplication;
+package com.example.myapplication.services;
 
-import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -9,23 +8,23 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.location.Location;
 import android.os.Build;
 import android.os.IBinder;
-import android.os.Looper;
 import android.util.Log;
-import java.util.Random;
 import android.widget.Toast;
-import androidx.annotation.NonNull;
+
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+
+import com.example.myapplication.receivers.AlarmReceiver;
+import com.example.myapplication.activities.MainActivity;
 
 public class ForegroundNotificationService extends Service {
 
     private static final String CHANNEL_ID = "ForegroundServiceChannel";
     private static final String TAG = "FOREGROUND SERVICE";
     private AlarmManager alarmManager;
-    private PendingIntent pendingIntent2;
+    private PendingIntent pendingIntentForAlarm;
 
     @Nullable
     @Override
@@ -43,7 +42,7 @@ public class ForegroundNotificationService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         Intent alarmIntent = new Intent(this, AlarmReceiver.class);
-        pendingIntent2 = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
+        pendingIntentForAlarm = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
 
         createNotificationChannel();
         Intent notifyIntent = new Intent(this, MainActivity.class);
@@ -56,12 +55,13 @@ public class ForegroundNotificationService extends Service {
                 .build();
         startAlarm();
         startForeground(1, notification);
+        Log.d(TAG, "Alarms is set and foreground service started");
 
         return START_STICKY;
     }
 
+    //for creation of persisting notification
     private void createNotificationChannel() {
-
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel serviceChannel = new NotificationChannel(
                     CHANNEL_ID,
@@ -80,10 +80,12 @@ public class ForegroundNotificationService extends Service {
         super.onDestroy();
 
     }*/
+
+    //the alarm for triggering the background service at every 5 minutes
     private void startAlarm() {
         Log.d(TAG, "Alarm Set!!!");
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 60000, pendingIntent2);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 300000, pendingIntentForAlarm);
         Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
     }
 }

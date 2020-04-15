@@ -1,10 +1,9 @@
-package com.example.myapplication;
+package com.example.myapplication.activities;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -18,7 +17,10 @@ import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import com.example.myapplication.receivers.BootReceiver;
+import com.example.myapplication.services.ForegroundNotificationService;
+import com.example.myapplication.R;
 
 import java.io.File;
 
@@ -27,13 +29,13 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText userName;
     private String name;
     private Button submit;
-    private AlarmManager manager;
-    private PendingIntent pendingIntent;
     File file;
 
     @Override
     protected void onStart() {
         super.onStart();
+
+        // takes user to enable gps in settings on start
         if (!isLocationEnabled()) {
             Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
             startActivity(intent);
@@ -50,8 +52,6 @@ public class RegistrationActivity extends AppCompatActivity {
         final SharedPreferences.Editor editor = prefs.edit();
         userName = findViewById(R.id.user_name);
         submit = findViewById(R.id.submit_button);
-        Intent alarmIntent = new Intent(this, BootReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
         file = new File(getFilesDir(), "location.txt");
         final Intent intent = new Intent(this, ForegroundNotificationService.class);
 
@@ -62,6 +62,8 @@ public class RegistrationActivity extends AppCompatActivity {
                 editor.putString("name", name).apply();
                 Intent returnIntent = new Intent(getApplicationContext(), MainActivity.class);
                 if (name != null) {
+
+                    //foreground service starts
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                         startForegroundService(intent);
                     } else {
@@ -72,11 +74,13 @@ public class RegistrationActivity extends AppCompatActivity {
                     returnIntent.putExtras(b);
                     setResult(Activity.RESULT_OK, returnIntent);
                     finish();
+                    //registration complete
                 }
             }
         });
     }
 
+    //check if location is enabled in settings
     private boolean isLocationEnabled() {
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
