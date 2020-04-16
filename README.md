@@ -6,37 +6,53 @@ LIFESPARK TECHNOLOGIES PVT. LTD.
 
 
 ## GOALS:
-1) Proactive tracing of locations where people converge (i.e. the local supermarket, clubhouse etc.)
-2) Using collected location trails, in case someone tests positive we can trace where these trails intersect with hotspots and flag them.
-3) Using this data to optimally allocate resources at these hotspots for testing, containment and fumigation efforts.
-4) Seemingly unrelated positive cases may have intersected at hitherto untraceable locations. This information can only be determined through analysis of location data. A point of convergence (eg. a location that all these cases may
-have visited) indicates a common source. Our method aims to find such hard-totrace sources as well.
-5) Providing this data to epidemiologists and virologists to speed up the process of getting an effective vaccine out in the market.
+1) Proactive tracing of critical transmission zones for containment.
+2) Enable seamless communication between 3 major stakeholders (Government, Healthcare Facilities and 
+3) Include a 2-stage verification process for Self-reporting patients to prevent false positives.
+4) Enable live tracking of inventory and occupancy data for hospitals to allow bidirectional communication with the Government authorities and MoH.
 
-## CONCEPT	
+
+## CONCEPT
+
 The coronavirus infection has two important properties that have led to the current pandemic: exponential spread and symptoms that are similar to existing ailments{[1][2]}. It’s high infectivity is especially a cause for concern. 
 
 Measures for reducing the impact of infection broadly hinge on one aspect: Reducing the exponent. This can be achieved through aggressive contact tracing and isolation of positive cases{[4][5]}. While testing every person is impractical, informed decisions regarding the deployment of testing and quarantine resources can substantially reduce spread and improve outcomes{[3]}.
 
-To this end, we propose a digital platform to facilitate contact tracing and mass movement modelling aimed at providing accurate insight into resource deployment. The idea is based on a few key characteristics. 
-    • Crowd-sourced data
+To this end, we propose a digital platform to facilitate mass movement modelling and contact tracing aimed at providing accurate insight into resource deployment. The platform consists a web portal and a mobile app. The idea is based on a few key characteristics.
+
+**1. Crowd-sourced data**
 The scale of the problem is beyond the ability of any single agency. Data collection requires that individuals opt-in to voluntarily share their data.
-    • Privacy-first approach
+
+**2. Privacy-first approach**
 One of the most important factors affecting voluntary sign-up is privacy. Safety and privacy of the individual with respect to each stakeholder (other individuals, health authorities), is a basic requirement.
-    • Proactive deployment of resources
-The general approach to contact tracing is retrospective. When implemented digitally through approaches such as Singapore’s TraceTogether, this effectively helps find and isolate potential cases. However, this approach only tackles direct human-to-human proximity based spread. Other means of spread, such as through contaminated surfaces in public places, or through food, etc are not tracked by this method. Our platform also prioritizes GPS-based movement data to spot points of convergence in location trails of individuals, helping unearth such hard-to-find sources.
 
-The prevalence of smartphones and the internet makes mobile applications ideal candidates for this method of data collection. Our data-driven platform uses crowdsourced anonymized location data and Bluetooth proximity data from a user’s cellphone, along with demographic data and lifestyle data entered by the user. This helps us in determining other people that have come in close proximity in the past 2-3 weeks (through the proximity of their cellphones) as well as places in the neighbourhood where people generally tend to visit in large numbers (supermarkets, etc). In the event that a person tests positive, resources for testing, fumigation etc. can be directed towards these local hotspots of convergence in addition to notifying those who have come in close contact. 
+**3. Proactive deployment of resources**
+The general approach to contact tracing is retrospective. When implemented digitally through approaches such as Singapore’s TraceTogether, this effectively helps find and isolate potential cases. However, this approach only tackles direct human-to-human proximity based spread. Other means of spread, such as through contaminated surfaces in public places, or through food, etc are not
+tracked by this method. Our platform also prioritizes GPS-based movement data to spot points of convergence in location trails of individuals, helping unearth such hard-to-find sources.
 
-The demographic and lifestyle/health data collected will include prescribed drugs, pre-existing conditions, other factors that can help medical professionals and epidemiologists gain more insight into clinical management and potentially aid development of vaccines. 
+**4. Closed Loop System**
+Government officials need a sense of the situation on the ground to operate effectively. In particular, they need to be made aware of the inventory and patient load at hospitals. 
+
+The prevalence of smartphones and the internet makes mobile applications ideal candidates for this method of data collection. Our data-driven platform uses crowdsourced anonymized location data and Bluetooth proximity data from a user’s cellphone, along with demographic data and lifestyle data entered by the user. This helps us in determining other people that have come in close proximity in the past 2-3 weeks (through the proximity of their cellphones) as well as places in the neighbourhood where people generally tend to visit in large numbers (supermarkets, etc). In the event that a person tests positive, resources for testing, fumigation etc. can be directed towards these local hotspots of convergence in addition to notifying those
+who have come in close contact.
+
+The demographic and lifestyle/health data collected will include prescribed drugs, preexisting conditions, other factors that can help medical professionals and epidemiologists gain more insight into clinical management and potentially aid development of vaccines.
+
+Government officials require information about the situation on the ground at hospitals to effectively deploy resources as and when required. The web portal **Infomed.live** facilitates this need. Hospitals can update their inventory, their patient load and capacity, personnel availability, etc. regularly so that health officials can keepin touch with the situation on the ground.
+
+![CoCo Feature Description and Flow](https://github.com/Lifespark-Technologies/CoCo/blob/master/docs/CoCo_onepage_flow_descript.png)
 
 ## PRIVACY
+
 Most countries that have made significant headway against the epidemic have temporarily suspended privacy concerns. Singapore’s TraceTogether app traces contact between people through the proximity of their phones. The app generates random ‘Contact Event Numbers (CEN)’ which are exchanged when two devices come in close proximity with each other. These CENs are linked to user entries in a central database that are accessible to the authorities{[8]}. While this grants anonymity to individuals from each other, it does not grant them anonymity from the authorities. The system also relies on the honesty of users{[8]}. 
 
 South Korean authorities have implemented one of the most successful screening systems in the form of drive-thru testing. While successful, it completely does away with privacy by using phone numbers to report results{[6]}. There have been cases of community ostracization and witch-hunts, which highlight the need for privacy in this matter{[6][7]}. 
 
 Our system largely relies on self-reporting to prevent privacy intrusions. We believe that making individuals aware of the impact that the epidemic can have on not just themselves, but their families and loved ones, sufficiently incentivizes voluntary participation. Comparing various methods of collecting data, and their levels of privacy (Table 1{[8]}), we have come to the conclusion that using an encrypted, multi proxy-server based approach works best to satisfy privacy requirements and constraints for scalability.
 
+To make the system more resilient to spam, we implement a verification system that can be completely managed through either the mobile app or through the web portal. On self-reporting (after going through the symptom tracker), the user receives a ‘Patient number’ generated by the app. This number is used to schedule an appointment through the app. This ensures there isn’t overcrowding at hospitals/test centers. The results of the test can be securely notified to the user by hospitals through the app or the web portal. This system prevents false positives.
+
+Preventing overcrowding at hospitals is quite important. As learnt from New York, hospitals themselves can become hotspots of infection. Given the resource constrained nature of the healtchcare system in times of a pandemic, we need to ensure only as many patients visit as it is possible to manage.
 
 ## IMPLEMENTATION
 ### ORACLE
@@ -58,6 +74,12 @@ All GPS data is anonymized and securely sent to the main server through proxy se
 ### HEALTH DATA
 In addition to location and proximity data, we aim to include a short questionnaire in the process of building the user profile. This will comprise demographic{[9]} and health data (Age group, Gender, Pre-existing health conditions etc.) and lifestyle data (Shopping habits, Eating habits, etc). Users with high risk of and from the infection will be advised to take precautionary measures. Such data for positive cases will also help improve clinical care protocols by revealing co-morbidities, risk-factors and adverse drug interactions. 
 
+The app has a verified self-reporting feature, where the user can check their risk of having the infection through a symptom tracker and schedule an appointment if necessary. Scheduling an appoinment securely and privately arranges for test results to be communicated back to the user. It seamlessly integrates with hospital protocols since results can be updated through either the app or the web portal.
+
+### INFOMED.LIVE
+
+Infomed allows officials to stay updated about the status of hospitals. Hospitals can be viewed individually or grouped by geographical area or other criteria. The total inventory, patient load/capacity, personnel availability can be seen. Hospitals can update this information regularly with ease, as well as coordinate patient test scheduling and result communication through the infomed or equally through the mobile app.
+
 ### GPS ANONYMIZATION ALGORITHM
 
 ![GPS Anonymization Algorithm](https://github.com/Lifespark-Technologies/CoCo/blob/master/docs/gps_method.PNG)
@@ -78,7 +100,7 @@ Available:https://github.com/BDI-pathogens/covid-19_instant_tracing/blob/master/
 6) As Coronavirus Surveillance Escalates, Personal Privacy Plummets.
 Available:https://www.nytimes.com/2020/03/23/technology/coronavirus-surveillance-tracking-privacy.html
 
-7)  Coronavirus privacy: Are South Korea's alerts too revealing?
+7) Coronavirus privacy: Are South Korea's alerts too revealing?
    Available: https://www.bbc.com/news/world-asia-51733145
 
 8) Contact Tracing Mobile Apps for COVID-19: Privacy Considerations and Related Trade-offs; Hyunghoon Cho and Daphne Ippolito and Yun William Yu; 2003.11511; 2020
