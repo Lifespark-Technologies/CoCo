@@ -1,15 +1,21 @@
 package com.example.myapplication.services;
 
 import android.app.Service;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.location.Location;
+import android.os.Build;
 import android.os.IBinder;
 import android.os.Looper;
+import android.os.PowerManager;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -38,6 +44,25 @@ public class BackgroundLocationService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
+        //registering receiver to tackle doze mode
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            BroadcastReceiver receiver = new BroadcastReceiver() {
+                @RequiresApi(api = Build.VERSION_CODES.M)
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+
+                    if (pm.isDeviceIdleMode()) {
+                        // the device is now in doze mode
+                        Log.d(TAG, "Doze mode ACTIVE!!!");
+                    } else {
+                        // the device just woke up from doze mode
+                    }
+                }
+            };
+            BackgroundLocationService.this.registerReceiver(receiver, new IntentFilter(PowerManager.ACTION_DEVICE_IDLE_MODE_CHANGED));
+        }
 
         //getting location using fused location listener
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
