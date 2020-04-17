@@ -37,5 +37,9 @@ dependencies {
     
         //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+    
+    
+    //GsonConverter
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
 
 }
