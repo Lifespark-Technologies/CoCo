@@ -36,6 +36,9 @@ public class BackgroundLocationService extends Service {
     Random random = new Random();
     private static final String TAG = "BACKGROUND SERVICE";
 
+    //for Retrofit
+      //   APIInterface apiInterface ;
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -122,4 +125,52 @@ public class BackgroundLocationService extends Service {
                 Looper.myLooper()
         );
     }
+
+
+    //For removing and sending to the server
+   /* void arrCopy() {
+        ArrayList<String> arrClone = (ArrayList<String>) arr.clone();
+        Collections.shuffle(arrClone);
+        String str = arrClone.get(arrClone.size() - 1); //retrivieng the last value for sending to the server
+        arrClone.remove(arrClone.size() - 1);
+
+        initRetrofit();
+
+    }
+    void initRetrofit()
+    {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("www.abcd.com")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        apiInterface = retrofit.create(APIInterface.class);
+
+        createPosts();
+    }
+
+    void createPosts()
+    {
+        LatLongModel latLongModel = new LatLongModel("ddsd"); //Pass here str from void arrCopy();
+        Call<LatLongModel> call = apiInterface.createPost(latLongModel);
+
+        call.enqueue(new Callback<LatLongModel>() {
+            @Override
+            public void onResponse(Call<LatLongModel> call, Response<LatLongModel> response) {
+                if(!response.isSuccessful())
+                {
+                    Log.d("callEnqueue : ",response.code()+"");
+                    Toast.makeText(MainActivity.this,"Code : "+response.code(),Toast.LENGTH_SHORT).show();
+                }
+
+                LatLongModel sendResponse = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<LatLongModel> call, Throwable t) {
+                Log.d("call onFailure ","error" , t);
+                Toast.makeText(MainActivity.this,t.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+        });
+    }*/
 }
