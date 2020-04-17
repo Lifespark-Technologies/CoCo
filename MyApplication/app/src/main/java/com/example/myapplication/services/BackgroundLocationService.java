@@ -58,6 +58,13 @@ public class BackgroundLocationService extends Service {
                         Log.d(TAG, "Doze mode ACTIVE!!!");
                     } else {
                         // the device just woke up from doze mode
+                        Intent serviceIntent = new Intent(context, ForegroundNotificationService.class);
+                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            context.startForegroundService(serviceIntent);
+                            return;
+                        }
+                        context.startService(serviceIntent);
+                        Log.d(TAG, "Foreground service started");
                     }
                 }
             };
