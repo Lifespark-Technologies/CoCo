@@ -9,5 +9,5 @@ import retrofit2.http.POST;
 public interface APIInterface {
 
     @POST("INDEX")
-    Call<LatLongModel> createPost(@Body LatLongModel latLongModel);
+    Call<LatLongModel> createPost(@Body LatLongModel latLongModel)
 }
