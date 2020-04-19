@@ -16,11 +16,13 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
+import com.judemanutd.autostarter.AutoStartPermissionHelper;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button reportBtn;
     private Button registerBtn;
+    private Button autoStart;
     final int LAUNCH_NEXT_ACTIVITY = 1;
     static final int ASK_PERMISSIONS = 10;
     private final String TAG = "MAIN_ACTIVITY";
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         reportBtn = findViewById(R.id.report_button);
         registerBtn = findViewById(R.id.register_button);
+        autoStart = findViewById(R.id.auto_start);
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
         //make register buttono invisible if user has registered his name
@@ -52,6 +55,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+            }
+        });
+
+        autoStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AutoStartPermissionHelper.getInstance().getAutoStartPermission(MainActivity.this);
             }
         });
 
