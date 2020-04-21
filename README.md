@@ -3,7 +3,7 @@
 A tool to help estimate hotspots of COVID-19 infection
 
 LIFESPARK TECHNOLOGIES PVT. LTD.
-
+Lifespark-Technologies/CoCo is licensed under the MIT License
 
 ## GOALS:
 1) Proactive tracing of critical transmission zones for containment.
