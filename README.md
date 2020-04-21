@@ -2,7 +2,7 @@
 ## Corona Control
 A tool to help estimate hotspots of COVID-19 infection
 
-LIFESPARK TECHNOLOGIES PVT. LTD. <\n>
+LIFESPARK TECHNOLOGIES PVT. LTD.  
 Lifespark-Technologies/CoCo is licensed under the MIT License
 
 ## GOALS:
