@@ -1,14 +1,16 @@
+ALL RIGHT RESERVED © 2020 Amey Desai
+
 # CoCo
 ## Corona Control
 A tool to help estimate hotspots of COVID-19 infection
 
-LIFESPARK TECHNOLOGIES PVT. LTD.
-
+Please contact amey@lifesparktech.com for non-commercial uses. This is intended to prevent misuse.
 
 ## GOALS:
-1) Proactive tracing of critical transmission zones for containment.
-2) Enable seamless communication between 3 major stakeholders (Government, Healthcare Facilities and 
-3) Include a 2-stage verification process for Self-reporting patients to prevent false positives.
+1) Proactive identification of critical transmission zones.
+2) Identification of human-human transmission(including asymptomatic carriers) and transmission through contaminated surfaces.
+2) Enable seamless communication between 3 major stakeholders (Government, Healthcare Facilities and individuals.
+3) Include a 2-stage verification process for self-reporting patients to prevent false positives.
 4) Enable live tracking of inventory and occupancy data for hospitals to allow bidirectional communication with the Government authorities and MoH.
 
 
@@ -81,8 +83,8 @@ The app has a verified self-reporting feature, where the user can check their ri
 Infomed allows officials to stay updated about the status of hospitals. Hospitals can be viewed individually or grouped by geographical area or other criteria. The total inventory, patient load/capacity, personnel availability can be seen. Hospitals can update this information regularly with ease, as well as coordinate patient test scheduling and result communication through the infomed or equally through the mobile app.
 
 ### GPS ANONYMIZATION ALGORITHM
-
-![GPS Anonymization Algorithm](https://github.com/Lifespark-Technologies/CoCo/blob/master/docs/gps_method.PNG)
+Please refer to 
+![Decentralized Computation of Density](https://github.com/Lifespark-Technologies/CoCo/blob/master/DCD.pdf)
 
 ## REFERENCES
 1) Similarities between COVID-19 and Influenza. WHO-int. Mar 2020 [Online] Available: https://www.who.int/news-room/q-a-detail/q-a-similarities-and-differences-covid-19-and-influenza
@@ -114,3 +116,4 @@ Available:https://www.nytimes.com/2020/03/23/technology/coronavirus-surveillance
 
 
 
+ALL RIGHT RESERVED © 2020 Amey Desai
