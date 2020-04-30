@@ -25,14 +25,16 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
-import com.example.myapplication.gridUtil;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class BackgroundLocationService extends Service {
 
-    private static final double R = 6371000;
     private FusedLocationProviderClient mFusedLocationClient;
+    private String lat, lon;
+    ArrayList<String> arr = new ArrayList<>();
+    Random random = new Random();
     private static final String TAG = "BACKGROUND SERVICE";
-    String lat, lon;
 
     //for Retrofit
       //   APIInterface apiInterface ;
@@ -76,12 +78,6 @@ public class BackgroundLocationService extends Service {
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         getLastLocation();
         Log.d(TAG, "Getting location");
-        gridUtil.count++;
-
-        if(gridUtil.count == 5) {
-            Log.d(TAG, "Send alert to server");
-            gridUtil.count = 0;
-        }
 
         return START_STICKY;
     }
@@ -95,22 +91,10 @@ public class BackgroundLocationService extends Service {
                         if (location == null) {
                             requestNewLocationData();
                         } else {
-                            
-                            double horizontalDist, verticalDist;
-                            double a1 = Math.pow(Math.cos(location.getLatitude()), 2) * Math.pow(Math.sin(location.getLongitude()/2), 2);
-                            double a2 = Math.pow(Math.sin(location.getLatitude()/2), 2);
-                            horizontalDist = R * 2 * Math.atan2(Math.sqrt(a1), Math.sqrt(1-a1));
-                            verticalDist = R * 2 * Math.atan2(Math.sqrt(a2), Math.sqrt(1-a2));
-
-                            horizontalDist /= 5;
-                            horizontalDist += 2.5;
-                            verticalDist /= 5;
-                            verticalDist += 2.5;
-
-                            gridUtil.grid[0] = horizontalDist;
-                            gridUtil.grid[1] = verticalDist;
-                            
-                            Toast.makeText(getApplicationContext(), "Got latitude and longitude", Toast.LENGTH_LONG).show();
+                            lat = location.getLatitude() + "" + "\t";
+                            lon = location.getLongitude() + "";
+                            arr.add(lat + lon);
+                            Toast.makeText(getApplicationContext(), lat + "///" + lon, Toast.LENGTH_LONG).show();
                             Log.d(TAG, "SERVICE IS RUNNING!!!");
                         }
                     }
