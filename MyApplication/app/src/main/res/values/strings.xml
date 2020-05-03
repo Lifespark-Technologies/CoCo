@@ -5,4 +5,8 @@
     <string name="name">Name</string>
     <string name="submit">Submit</string>
     <string name="location_data">Location Data</string>
+    <string name="login_signup">Login or SignUp</string>
+    <string name="login">Login</string>
+    <string name="signup">SignUp</string>
+
 </resources>
