@@ -8,5 +8,16 @@
     <string name="login_signup">Login or SignUp</string>
     <string name="login">Login</string>
     <string name="signup">SignUp</string>
-
+    <string name="symptom_checker">Is this an emergency? (if the person is observing any obvious symptoms listed)\n\n\u00E2\u0080\u00A2Severe, constant chest pain or pressure\n\u00E2\u0080\u00A2Extreme difficulty breathing\n\u00E2\u0080\u00A2Severe, constant lightheadedness\n\u00E2\u0080\u00A2Serious disorientation or unresponsiveness</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="we_need_to_ask_more_questions_to_understand_your_situation">We\u00E2\u0080\u0099ll need to ask more questions to understand your situation.</string>
+    <string name="how_old_are_you">How old are you?</string>
+    <string name="under_18">Under 18</string>
+    <string name="between_18To64">18-64</string>
+    <string name="above_64">Above 64</string>
+    <string name="have_you_been_to_crowded_places">Have you been to crowed places like supermarket, big store etc.?</string>
+    <string name="are_you_working_in_hospital">Are you working in hospital?</string>
+    <string name="questions_about_recent_exposure">Questions about recent exposure, field of employment (if medical or not) and residential arrangement(care facility, nursing homes, etc)</string>
+    <string name="done">Done</string>
 </resources>
