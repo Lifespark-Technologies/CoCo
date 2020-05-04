@@ -41,4 +41,7 @@ dependencies {
     //GsonConverter
     implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
 
+    //MaterailDesign
+    implementation 'com.google.android.material:material:1.1.0'
+
 }

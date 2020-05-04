@@ -20,7 +20,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.LoginOrSignUpActivity"></activity>
+        <activity android:name=".activities.AskPermissons"></activity>
+        <activity android:name=".activities.LoginOrSignUpActivity" />
 
         <receiver android:name=".receivers.BootReceiver">
             <intent-filter>
