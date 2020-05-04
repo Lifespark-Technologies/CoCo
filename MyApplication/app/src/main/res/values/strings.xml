@@ -8,5 +8,8 @@
     <string name="login_signup">Login or SignUp</string>
     <string name="login">Login</string>
     <string name="signup">SignUp</string>
+    <string name="symptom_checker">Is this an emergency? (if the person is observing any obvious symptoms listed)\n\n\u00E2\u0080\u00A2Severe, constant chest pain or pressure\n\u00E2\u0080\u00A2Extreme difficulty breathing\n\u00E2\u0080\u00A2Severe, constant lightheadedness\n\u00E2\u0080\u00A2Serious disorientation or unresponsiveness</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 </resources>
