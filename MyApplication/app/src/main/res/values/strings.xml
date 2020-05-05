@@ -8,7 +8,7 @@
     <string name="login_signup">Login or SignUp</string>
     <string name="login">Login</string>
     <string name="signup">SignUp</string>
-    <string name="symptom_checker">Is this an emergency? (if the person is observing any obvious symptoms listed)\n\n\u00E2\u0080\u00A2Severe, constant chest pain or pressure\n\u00E2\u0080\u00A2Extreme difficulty breathing\n\u00E2\u0080\u00A2Severe, constant lightheadedness\n\u00E2\u0080\u00A2Serious disorientation or unresponsiveness</string>
+    <string name="symptom_checker_is_this_emergency">Is this an emergency? (if the person is observing any obvious symptoms listed)\n\n\u00E2\u0080\u00A2Severe, constant chest pain or pressure\n\u00E2\u0080\u00A2Extreme difficulty breathing\n\u00E2\u0080\u00A2Severe, constant lightheadedness\n\u00E2\u0080\u00A2Serious disorientation or unresponsiveness</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="we_need_to_ask_more_questions_to_understand_your_situation">We\u00E2\u0080\u0099ll need to ask more questions to understand your situation.</string>
@@ -20,4 +20,18 @@
     <string name="are_you_working_in_hospital">Are you working in hospital?</string>
     <string name="questions_about_recent_exposure">Questions about recent exposure, field of employment (if medical or not) and residential arrangement(care facility, nursing homes, etc)</string>
     <string name="done">Done</string>
+    <string name="location_access_and_bluetooth">Enable Location Access</string>
+    <string name="reason_location_access_and_bluetooth">This app works best when enabling location and bluetooth access at all times.</string>
+    <string name="what_location_and_bluetooth_do">With location data, it detects places where people gather &amp; highlights you the risk area near you</string>
+    <string name="my_appointment">My Appointment</string>
+    <string name="settings">Settings</string>
+    <string name="my_account">My Account</string>
+    <string name="about_us">About us</string>
+    <string name="search_area">Search area</string>
+    <string name="high_density">High density</string>
+    <string name="high_risk">High risk</string>
+    <string name="symptom_checker">Symptom Checker</string>
+    <string name="open_drawer">Open Drawer</string>
+    <string name="close_drawer">Close Drawer</string>
+
 </resources>
