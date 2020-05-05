@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/whiteSmoke"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    tools:context=".fragments.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="70dp"
+                android:layout_marginHorizontal="30dp"
+                android:background="@drawable/style_edittext"
+                android:orientation="horizontal"
+                >
+
+                <EditText
+                    android:layout_weight="0.3"
+                    android:padding="10dp"
+                    android:hint="@string/search_area"
+                    android:id="@+id/home_area_search"
+                    android:background="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <ImageButton
+                    android:layout_weight="1"
+                    android:background="@color/grey"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/home_area_search_button"
+                    android:src="@drawable/ic_search_black_24dp"
+                    />
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/high_density_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:padding="10dp"
+                android:text="@string/high_density"
+                android:textAllCaps="false"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/high_risk_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/roboto_regular"
+                android:paddingHorizontal="20dp"
+                android:text="@string/high_risk"
+                android:textAllCaps="false"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_marginTop="25dp"
+            >
+            
+            <TextView
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Map Visualization"
+                android:background="@color/grey" />
+
+            <Button
+                android:id="@+id/symptom_checker_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="75dp"
+                android:background="@drawable/dark_button"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/symptom_checker"
+                android:textAllCaps="false"
+                android:textColor="@color/whiteSmoke"
+                android:textSize="16sp" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</FrameLayout>

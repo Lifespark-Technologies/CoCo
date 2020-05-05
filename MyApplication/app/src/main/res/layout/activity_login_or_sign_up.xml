@@ -17,7 +17,7 @@
             android:text="@string/login_signup"
     />
 
-     <com.google.android.material.button.MaterialButton
+     <Button
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:layout_marginRight="50dp"
@@ -30,7 +30,7 @@
              android:background="@color/cardview_shadow_start_color"
              android:id="@+id/login_button"
              />
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="50dp"
