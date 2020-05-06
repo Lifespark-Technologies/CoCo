@@ -37,7 +37,7 @@ The demographic and lifestyle/health data collected will include prescribed drug
 
 Government officials require information about the situation on the ground at hospitals to effectively deploy resources as and when required. The web portal **Infomed.live** facilitates this need. Hospitals can update their inventory, their patient load and capacity, personnel availability, etc. regularly so that health officials can keep in touch with the situation on the ground.
 
-![CoCo Feature Description and Flow](https://github.com/Lifespark-Technologies/CoCo/blob/master/docs/CoCo_onepage_flow_descript.png)
+![CoCo Feature Description and Flow](https://github.com/Lifespark-Technologies/CoCo/blob/master/docs/CoCo_onepage_flow.png)
 
 ## PRIVACY
 
@@ -88,14 +88,8 @@ The mobile phone downloads the local density map from the server at regular inte
 Server Side
 A map will be rendered on the server, graphically representing density. A grid will only display when it’s counter exceeds a threshold value of 20. The color of the grid will be used to represent relative density. Given social distancing norms, each person needs to maintain a distance of at least 1 m from others, thus occupying 3.14 sq.m on the ground. Thus about 31 people can safely occupy a 100 sq.m grid. 
 
-![DCD Illustration 1](https://github.com/Lifespark-Technologies/CoCo/blob/master/docs/DCD_illustration_1.png)
-![DCD Illustration 2](https://github.com/Lifespark-Technologies/CoCo/blob/master/docs/DCD_illustration_1.png)
-
-Figure 1 Part A shows an example user trail. Part B shows reported locations. Grid cells where the user spends more than 3 minutes are reported. Only the reported locations are visible to the server, not the entire trail as shown in Part C.
-
-
-
-Figure 2 Identification of crowded locations. Only the flagged cells are visible to the server, which maps the crowd density in each cell which has more than the threshold.
+![DCD illutration 1](https://github.com/Lifespark-Technologies/CoCo/blob/master/docs/DCD_illustration_1.png)
+![DCD illutration 2](https://github.com/Lifespark-Technologies/CoCo/blob/master/docs/DCD_illustration_1.png)
 
 Flagging hotspots upon self-reporting
 When a user reports themself as positive, their visited clusters for the past week will be uploaded to the server. These will be flagged and notified to users according to the design policy
