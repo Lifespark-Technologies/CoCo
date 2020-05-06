@@ -88,8 +88,8 @@ The mobile phone downloads the local density map from the server at regular inte
 Server Side
 A map will be rendered on the server, graphically representing density. A grid will only display when it’s counter exceeds a threshold value of 20. The color of the grid will be used to represent relative density. Given social distancing norms, each person needs to maintain a distance of at least 1 m from others, thus occupying 3.14 sq.m on the ground. Thus about 31 people can safely occupy a 100 sq.m grid. 
 
-![DCD illutration 1](https://github.com/Lifespark-Technologies/CoCo/blob/master/docs/DCD_illustration_1.png)
-![DCD illutration 2](https://github.com/Lifespark-Technologies/CoCo/blob/master/docs/DCD_illustration_1.png)
+![DCD illustration 1](https://github.com/Lifespark-Technologies/CoCo/blob/master/docs/DCD_illutration_1.png)
+![DCD illustration 2](https://github.com/Lifespark-Technologies/CoCo/blob/master/docs/DCD_illutration_2.png)
 
 Flagging hotspots upon self-reporting
 When a user reports themself as positive, their visited clusters for the past week will be uploaded to the server. These will be flagged and notified to users according to the design policy
