@@ -1,6 +1,6 @@
 ALL RIGHT RESERVED © 2020 Amey Desai
 
-CoCo
+# CoCo
 
 ## GOALS:
 1) Aid containment through proactive identification of critical transmission zones and modalities as well as streamlining of population flow
@@ -141,3 +141,4 @@ Available:https://www.nytimes.com/2020/03/23/technology/coronavirus-surveillance
 9) Evaluating and Testing Persons for Coronavirus Disease 2019 (COVID-19) Mar 2020 [Online]. Available: https://www.cdc.gov/coronavirus/2019-ncov/hcp/clinical-criteria.html
 
 
+ALL RIGHT RESERVED © 2020 Amey Desai
