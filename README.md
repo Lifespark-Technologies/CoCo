@@ -88,10 +88,8 @@ The mobile phone downloads the local density map from the server at regular inte
 Server Side
 A map will be rendered on the server, graphically representing density. A grid will only display when it’s counter exceeds a threshold value of 20. The color of the grid will be used to represent relative density. Given social distancing norms, each person needs to maintain a distance of at least 1 m from others, thus occupying 3.14 sq.m on the ground. Thus about 31 people can safely occupy a 100 sq.m grid. 
 
-
-                 A                                B
-
-                              C
+![DCD Illustration 1](https://github.com/Lifespark-Technologies/CoCo/blob/master/docs/DCD_illustration_1.png)
+![DCD Illustration 2](https://github.com/Lifespark-Technologies/CoCo/blob/master/docs/DCD_illustration_1.png)
 
 Figure 1 Part A shows an example user trail. Part B shows reported locations. Grid cells where the user spends more than 3 minutes are reported. Only the reported locations are visible to the server, not the entire trail as shown in Part C.
 
