@@ -29,7 +29,6 @@
      <Button
          android:layout_width="150dp"
          android:layout_height="wrap_content"
-         app:cornerRadius="12dp"
          android:layout_marginLeft="20dp"
          android:textSize="20sp"
          android:text="@string/yes"
@@ -39,7 +38,6 @@
        <Button
            android:layout_width="150dp"
            android:layout_height="wrap_content"
-           app:cornerRadius="12dp"
            android:textSize="20sp"
            android:layout_marginLeft="50dp"
            android:text="@string/no"
