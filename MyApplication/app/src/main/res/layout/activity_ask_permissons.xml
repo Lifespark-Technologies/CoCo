@@ -7,78 +7,12 @@
     android:background="@color/cardview_dark_background"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".activities.AskPermissons">
+    tools:context="com.example.myapplication.activities.AskPermissions">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="1dp"
-        >
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="25sp"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ask_permission_title"
-                android:text="@string/location_access_and_bluetooth"
-                android:fontFamily="@font/roboto_medium"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:id="@+id/ask_permissions_what"
-                android:textSize="16sp"
-                android:text="@string/reason_location_access_and_bluetooth"
-                android:fontFamily="@font/inter_bold"
-                android:textAlignment="center"
-                />
-            
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:textSize="14sp"
-                android:textAlignment="center"
-                android:text="@string/what_location_and_bluetooth_do"
-                android:fontFamily="@font/roboto_regular"
-                />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/dark_button"
-                android:id="@+id/proceed_button"
-                android:text="Yes, sure"
-                android:textColor="@color/whiteSmoke"
-                android:fontFamily="@font/inter_semi_bold"
-                android:textAllCaps="false"
-                android:textSize="16sp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Remind me later"
-                android:clickable="true"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:fontFamily="@font/inter_semi_bold"
-                />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/main_frame_layout"
+        android:nestedScrollingEnabled="false" />
 
 </LinearLayout>

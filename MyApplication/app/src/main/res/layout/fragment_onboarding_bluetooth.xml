@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/onboarding_bluetooth_layout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.onboarding.OnboardingBluetoothFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="1dp"
+            android:background="@color/whiteSmoke"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="25sp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ask_permission_title"
+                    android:text="@string/bluetooth"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+                    android:textAlignment="center"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:id="@+id/ask_permissions_what"
+                    android:textSize="16sp"
+                    android:text="@string/reason_location_access_and_bluetooth"
+                    android:fontFamily="@font/inter_bold"
+                    android:textAlignment="center"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:textSize="14sp"
+                    android:textAlignment="center"
+                    android:text="@string/what_location_and_bluetooth_do"
+                    android:fontFamily="@font/roboto_regular"
+                    />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/dark_button"
+                    android:id="@+id/proceed_button"
+                    android:text="Yes, sure"
+                    android:textColor="@color/whiteSmoke"
+                    android:fontFamily="@font/inter_semi_bold"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/remind_me_later_button"
+                    android:layout_marginTop="15dp"
+                    android:text="Remind me later"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/inter_semi_bold"
+                    android:background="@color/white"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+</FrameLayout>

@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:backgroundTint="@color/whiteSmoke"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
     tools:context=".fragments.HomeFragment">
 
     <LinearLayout
@@ -91,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginBottom="75dp"
+                android:layout_marginBottom="40dp"
                 android:background="@drawable/dark_button"
                 android:fontFamily="@font/roboto_regular"
                 android:text="@string/symptom_checker"

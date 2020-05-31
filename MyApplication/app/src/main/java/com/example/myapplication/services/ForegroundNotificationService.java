@@ -85,7 +85,7 @@ public class ForegroundNotificationService extends Service {
     private void startAlarm() {
         Log.d(TAG, "Alarm Set!!!");
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 300000, pendingIntentForAlarm);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 60000, pendingIntentForAlarm);
         Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
     }
 }

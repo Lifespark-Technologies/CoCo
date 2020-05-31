@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class autostarter {
+public class Autostarter {
 
     /***
      * Xiaomi
@@ -350,7 +350,8 @@ public class autostarter {
 
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(packageName, componentName));
-            context.startActivity(intent);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+;            context.startActivity(intent);
 
         } catch (Exception e) {
             e.printStackTrace();
