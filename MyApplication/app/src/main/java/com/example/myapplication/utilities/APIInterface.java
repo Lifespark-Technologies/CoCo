@@ -1,5 +1,4 @@
-package com.example.myapplication;
-import java.util.List;
+package com.example.myapplication.utilities;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

@@ -6,4 +6,6 @@
     <color name="whiteSmoke">#F2F2F2</color>
     <color name="black">#000000</color>
     <color name="grey">#E5E5E5</color>
+    <color name="action_bar_color">#F6F6F6</color>
+    <color name="white">#FFFFFF</color>
 </resources>

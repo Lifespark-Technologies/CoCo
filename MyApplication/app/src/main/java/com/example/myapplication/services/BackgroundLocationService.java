@@ -1,10 +1,13 @@
 package com.example.myapplication.services;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
 import android.os.IBinder;
@@ -16,6 +19,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -25,7 +29,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
-import com.example.myapplication.gridUtil;
+import com.example.myapplication.utilities.gridUtil;
 
 public class BackgroundLocationService extends Service {
 
@@ -35,7 +39,7 @@ public class BackgroundLocationService extends Service {
     String lat, lon;
 
     //for Retrofit
-      //   APIInterface apiInterface ;
+    //   APIInterface apiInterface ;
 
     @Nullable
     @Override
@@ -60,7 +64,7 @@ public class BackgroundLocationService extends Service {
                     } else {
                         // the device just woke up from doze mode
                         Intent serviceIntent = new Intent(context, ForegroundNotificationService.class);
-                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                             context.startForegroundService(serviceIntent);
                             return;
                         }
@@ -76,17 +80,19 @@ public class BackgroundLocationService extends Service {
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         getLastLocation();
         Log.d(TAG, "Getting location");
-        gridUtil.count++;
-
-        if(gridUtil.count == 5) {
-            Log.d(TAG, "Send alert to server");
-            gridUtil.count = 0;
-        }
-
         return START_STICKY;
     }
 
-    private void getLastLocation(){
+    private void getLastLocation() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(getApplicationContext(), "Location Services not allowed so will not start operation", Toast.LENGTH_LONG).show();
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         mFusedLocationClient.getLastLocation().addOnCompleteListener(
                 new OnCompleteListener<Location>() {
                     @Override
@@ -95,22 +101,37 @@ public class BackgroundLocationService extends Service {
                         if (location == null) {
                             requestNewLocationData();
                         } else {
-                            
-                            double horizontalDist, verticalDist;
-                            double a1 = Math.pow(Math.cos(location.getLatitude()), 2) * Math.pow(Math.sin(location.getLongitude()/2), 2);
-                            double a2 = Math.pow(Math.sin(location.getLatitude()/2), 2);
-                            horizontalDist = R * 2 * Math.atan2(Math.sqrt(a1), Math.sqrt(1-a1));
-                            verticalDist = R * 2 * Math.atan2(Math.sqrt(a2), Math.sqrt(1-a2));
 
-                            horizontalDist /= 5;
-                            horizontalDist += 2.5;
-                            verticalDist /= 5;
-                            verticalDist += 2.5;
+                            double horizontalDist, verticalDist;
+                            double lat, lon;
+                            lat = location.getLatitude() * Math.PI / 180;
+                            lon = location.getLongitude() * Math.PI / 180;
+                            double a1 = Math.pow(Math.cos(lat), 2) * Math.pow(Math.sin(lon / 2), 2);
+                            double a2 = Math.pow(Math.sin(lat / 2), 2);
+                            horizontalDist = R * 2 * Math.atan2(Math.sqrt(a1), Math.sqrt(1 - a1));
+                            verticalDist = R * 2 * Math.atan2(Math.sqrt(a2), Math.sqrt(1 - a2));
+
+                            horizontalDist /= 10;
+                            horizontalDist *= 10;
+                            horizontalDist += 5;
+                            verticalDist /= 10;
+                            verticalDist *= 10;
+                            verticalDist += 5;
+
+                            if (gridUtil.grid[0] == horizontalDist && gridUtil.grid[1] == verticalDist) {
+                                gridUtil.count++;
+                                if (gridUtil.count == 3) {
+                                    Toast.makeText(getApplicationContext(), horizontalDist + "///" + verticalDist + "///Stayed in same point for 3 minutes", Toast.LENGTH_LONG).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), horizontalDist + "///" + verticalDist, Toast.LENGTH_LONG).show();
+                                }
+                            } else {
+                                gridUtil.count = 0;
+                                Toast.makeText(getApplicationContext(), horizontalDist + "///" + verticalDist + "///location changed", Toast.LENGTH_LONG).show();
+                            }
 
                             gridUtil.grid[0] = horizontalDist;
                             gridUtil.grid[1] = verticalDist;
-                            
-                            Toast.makeText(getApplicationContext(), "Got latitude and longitude", Toast.LENGTH_LONG).show();
                             Log.d(TAG, "SERVICE IS RUNNING!!!");
                         }
                     }
@@ -121,12 +142,13 @@ public class BackgroundLocationService extends Service {
         @Override
         public void onLocationResult(LocationResult locationResult) {
             Location mLastLocation = locationResult.getLastLocation();
-            lat = mLastLocation.getLatitude()+"";
-            lon = mLastLocation.getLongitude()+"";
+            lat = mLastLocation.getLatitude() + "";
+            lon = mLastLocation.getLongitude() + "";
         }
     };
 
-    private void requestNewLocationData(){
+
+    private void requestNewLocationData() {
 
         //first time the service is run
         LocationRequest mLocationRequest = new LocationRequest();
@@ -136,10 +158,16 @@ public class BackgroundLocationService extends Service {
         mLocationRequest.setNumUpdates(1);
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        mFusedLocationClient.requestLocationUpdates(
-                mLocationRequest, mLocationCallback,
-                Looper.myLooper()
-        );
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(getApplicationContext(), "Location Services not allowed so will not start operation", Toast.LENGTH_LONG).show();
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
     }
 
 

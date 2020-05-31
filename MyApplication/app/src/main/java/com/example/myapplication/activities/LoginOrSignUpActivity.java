@@ -22,7 +22,7 @@ public class LoginOrSignUpActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toAskPermission = new Intent(LoginOrSignUpActivity.this, AskPermissons.class);
+                Intent toAskPermission = new Intent(LoginOrSignUpActivity.this, MainActivity.class);
                 startActivity(toAskPermission);
             }
         });

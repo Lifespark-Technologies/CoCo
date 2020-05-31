@@ -1,5 +1,6 @@
 package com.example.myapplication.activities;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -8,17 +9,18 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.myapplication.R;
-import com.example.myapplication.autostartPermissions.autostarter;
 import com.example.myapplication.fragments.HomeFragment;
+import com.example.myapplication.services.ForegroundNotificationService;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,14 +35,24 @@ public class MainActivity extends AppCompatActivity {
     HomeFragment homeFragment;
     ActionBarDrawerToggle actionBarDrawerToggle;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initView();
-        toolbar.setVisibility(View.VISIBLE);
-        switchToHome();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean previouslyStarted = prefs.getBoolean(getString(R.string.pref_previously_started), false);
+        if(!previouslyStarted) {
+            SharedPreferences.Editor edit = prefs.edit();
+            edit.putBoolean(getString(R.string.pref_previously_started), Boolean.TRUE);
+            edit.commit();
+            startActivity(new Intent(MainActivity.this, AskPermissions.class));
+        } else {
+            initView();
+            toolbar.setVisibility(View.VISIBLE);
+            switchToHome();
+        }
     }
 
     public void initView() {
@@ -112,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void switchToHome() {
 
         toolbar.setVisibility(View.VISIBLE);
@@ -123,6 +136,13 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
 
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_menu_black_24dp));
+
+        Intent intent = new Intent(this, ForegroundNotificationService.class);
+        if (Build.VERSION.SDK_INT >- Build.VERSION_CODES.O) {
+            startForegroundService(intent);
+        } else {
+            startService(intent);
+        }
     }
 
 }
