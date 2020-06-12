@@ -48,5 +48,12 @@
     <string name="exposure_and_push_alerts">Allow us to send exposure and push notifications</string>
     <string name="autostart_permissions">Allow the app to autostart</string>
     <string name="pref_previously_started">isFirstRun</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="enable_location">Enable Location</string>
+    <string name="enable_bluetooth">Enable Bluetooth</string>
+    <string name="enable_autostart">Enable Auto-Start Settings</string>
+    <string name="sharing">Sharing is caring</string>
+    <string name="remind_your_family">Remind your family and friends to check their symptoms with the app</string>
+    <string name="share_btn_text">Share</string>
 
 </resources>

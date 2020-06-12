@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:backgroundTint="@color/whiteSmoke"
+    tools:context=".activities.SettingsActivity">
+
+    <Toolbar
+        android:layout_width="match_parent"
+        android:background="@drawable/bottom_border"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:clickable="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/settings_back_button"
+                android:src="@drawable/ic_round_arrow_back_ios_24"
+                android:background="@color/white"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/settings"
+                android:paddingEnd="60dp"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="20sp"
+                android:textColor="@color/high_contrast"
+                android:gravity="center"
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
+    </Toolbar>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@drawable/settings_options"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_height="50dp">
+
+        <Switch
+            android:layout_marginHorizontal="17dp"
+            android:id="@+id/location_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|start"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="14sp"
+            android:textColor="@color/high_contrast"
+            android:text="@string/enable_location"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@drawable/settings_options"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_height="50dp">
+
+        <Switch
+            android:layout_marginHorizontal="17dp"
+            android:id="@+id/bluetooth_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|start"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="14sp"
+            android:textColor="@color/high_contrast"
+            android:text="@string/enable_bluetooth"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@drawable/settings_options"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="15dp"
+        android:layout_height="50dp">
+
+        <Switch
+            android:layout_marginHorizontal="17dp"
+            android:id="@+id/autostart_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|start"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="14sp"
+            android:textColor="@color/high_contrast"
+            android:text="@string/enable_autostart"/>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardElevation="0dp"
+        android:background="@drawable/settings_options"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="20sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/safe_2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sharing"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="16sp"
+                android:textColor="@color/high_contrast"/>
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/remind_your_family"
+                android:textAlignment="center"
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="14sp"
+                android:textColor="@color/high_contrast"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/secondary_button_rounded"
+                android:id="@+id/share_button"
+                android:textAllCaps="false"
+                android:text="@string/share_btn_text"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="16sp"
+                android:textColor="@color/primary_green"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
