@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="72dp"
             android:layout_marginHorizontal="20dp"
-            android:background="@drawable/dark_button"
+            android:background="@drawable/primary_button"
             android:fontFamily="@font/roboto_regular"
             android:textSize="16sp"
             android:text="@string/symptom_checker_yes_book_appointment"

@@ -3,17 +3,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="bottom"
-    android:paddingHorizontal="15dp"
-    android:paddingVertical="30dp">
+    android:gravity="bottom|center"
+    >
     
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:id="@+id/side_nav_user_name"
-        android:text="@string/name"
-        android:textSize="75sp"
-        android:fontFamily="@font/roboto_regular"
+        android:src="@drawable/safe_2"
         />
 
 </LinearLayout>

@@ -18,11 +18,31 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/nav_view"
-        android:background="@color/whiteSmoke"
+        android:background="@color/white"
+        android:paddingTop="20dp"
         android:layout_gravity= "start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/side_navigation_header"
-        app:menu="@menu/side_navigation_menu" />
+        android:fitsSystemWindows="true">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
+            <ImageView
+                android:layout_marginTop="14dp"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:src="@drawable/safe_2"
+                android:id="@+id/nav_header"/>
+
+            <ListView
+                android:layout_marginTop="20dp"
+                android:id="@+id/nav_menu_list"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:layout_height="0dp"/>
+        </LinearLayout>
+    </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>
