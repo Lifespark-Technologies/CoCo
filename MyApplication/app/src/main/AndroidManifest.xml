@@ -20,8 +20,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.SettingsActivity"></activity>
-        <!-- activites -->
+        <activity android:name=".activities.AboutUsActivity"></activity>
+        <activity android:name=".activities.SettingsActivity" /> <!-- activites -->
         <activity
             android:name=".activities.SplashScreenActivity"
             android:noHistory="true">
