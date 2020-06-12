@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.activities.AboutUsActivity;
 import com.example.myapplication.activities.SettingsActivity;
 import com.example.myapplication.fragments.HomeFragment;
 
@@ -49,7 +50,8 @@ public class NavigationMenuListAdapter extends ArrayAdapter {
                 break;
             case 1:
                 menuItem.setOnClickListener(v -> {
-                    Toast.makeText(context, "About us clicked", Toast.LENGTH_SHORT).show();
+                    Intent settingsIntent = new Intent(context, AboutUsActivity.class);
+                    ((AppCompatActivity)context).startActivityForResult(settingsIntent, Activity.RESULT_OK);
                 });
                 break;
             case 2:

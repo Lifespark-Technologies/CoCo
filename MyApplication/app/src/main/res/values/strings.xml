@@ -55,5 +55,10 @@
     <string name="sharing">Sharing is caring</string>
     <string name="remind_your_family">Remind your family and friends to check their symptoms with the app</string>
     <string name="share_btn_text">Share</string>
+    <string name="support_us">Support us and donate</string>
+    <string name="donate">Donate</string>
+    <string name="we_are_a_group">We are a group of volunteers from all over the world who have worked together on the Safe.t project in the past few months.</string>
+    <string name="check_out_our_project">Check out our project website to learn more about our projects.</string>
+    <string name="the_safet_project">The Safe.t project to proactively prevent the spread of COVID-19 while preserving privacy.\nProviding exposure alerts to citizens with accurate information &amp; guidelines.\nTracking of symptom progression and identification of asymptomatic + presymptomatic cases.</string>
 
 </resources>
