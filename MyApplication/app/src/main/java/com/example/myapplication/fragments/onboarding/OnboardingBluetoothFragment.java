@@ -28,9 +28,6 @@ public class OnboardingBluetoothFragment extends Fragment {
         View onboardingBluetoothFragment =  inflater.inflate(R.layout.fragment_onboarding_bluetooth, container, false);
         remindMeLater = onboardingBluetoothFragment.findViewById(R.id.remind_me_later_button);
         proceedButton = onboardingBluetoothFragment.findViewById(R.id.proceed_button);
-        /*prefs = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean("firstRun", true);*/
 
         proceedButton.setOnClickListener(view -> {
             getActivity().getSupportFragmentManager().beginTransaction()

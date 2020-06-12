@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:elevation="0dp"
-        android:backgroundTint="@color/action_bar_color"
+        android:backgroundTint="@color/primary_green"
         android:elevation="0dp"
         android:theme="@style/AppThemeDashboard.AppBarOverlay">
 
@@ -21,7 +21,6 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@color/whiteSmoke"
             android:contextClickable="false"
             android:elevation="0dp"
             app:titleTextColor="@color/black">
@@ -34,17 +33,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginHorizontal="12dp"
+                >
 
                 <ImageView
                     android:id="@+id/logo_image"
-                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/safe_6" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:layout_weight="6"
+                    android:background="@color/primary_green"
+                    android:src="@drawable/ic_outline_notifications_24" />
 
             </LinearLayout>
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
+
 
         <View
             android:layout_width="match_parent"

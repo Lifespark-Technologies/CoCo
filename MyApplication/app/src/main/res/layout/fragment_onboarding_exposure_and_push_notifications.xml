@@ -65,7 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
-                    android:background="@drawable/dark_button"
+                    android:background="@drawable/primary_button"
                     android:id="@+id/proceed_button"
                     android:text="Yes, sure"
                     android:textColor="@color/whiteSmoke"

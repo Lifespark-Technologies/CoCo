@@ -1,8 +1,10 @@
 package com.example.myapplication.fragments;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -14,34 +16,49 @@ import android.widget.ImageButton;
 
 import com.example.myapplication.R;
 import com.example.myapplication.activities.SymptomChecker;
+import com.example.myapplication.databinding.FragmentHomeBinding;
+import com.example.myapplication.services.ForegroundNotificationService;
 
 public class HomeFragment extends Fragment {
 
-    public Button symptomCheckerButton, highDensityButton, highRiskButton;
-    ImageButton searchLocationButton;
-    EditText searchLocation;
+    FragmentHomeBinding homeBinding;
 
     public HomeFragment() {
         // Required empty public constructor
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        homeBinding = FragmentHomeBinding.inflate(inflater, container, false);
+        View view = homeBinding.getRoot();
 
-        View homeFragmentLayout = inflater.inflate(R.layout.fragment_home, container, false);
-        symptomCheckerButton = homeFragmentLayout.findViewById(R.id.symptom_checker_button);
-        searchLocationButton = homeFragmentLayout.findViewById(R.id.home_area_search_button);
-        highDensityButton = homeFragmentLayout.findViewById(R.id.high_density_button);
-        highRiskButton = homeFragmentLayout.findViewById(R.id.high_risk_button);
-        searchLocation = homeFragmentLayout.findViewById(R.id.home_area_search);
+        homeBinding.areaSearchButton.setOnClickListener(v -> {
 
-        symptomCheckerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent symptomchecker = new Intent(getActivity().getApplicationContext(), SymptomChecker.class);
-                startActivity(symptomchecker);
+        });
+
+        homeBinding.highDensityButton.setOnClickListener(v -> {
+
+        });
+
+        homeBinding.highRiskButton.setOnClickListener(v -> {
+
+        });
+
+        homeBinding.serviceTesting.setOnClickListener(v -> {
+            Intent serviceIntent = new Intent(getActivity().getApplicationContext(), ForegroundNotificationService.class);
+            if (Build.VERSION.SDK_INT >- Build.VERSION_CODES.O) {
+                getActivity().startForegroundService(serviceIntent);
+            } else {
+                getActivity().startService(serviceIntent);
             }
         });
-        return homeFragmentLayout;
+
+        homeBinding.symptomCheckerButton.setOnClickListener(v -> {
+            Intent symptomChecker = new Intent(getActivity().getApplicationContext(), SymptomChecker.class);
+            startActivity(symptomChecker);
+        });
+
+        return view;
     }
 }

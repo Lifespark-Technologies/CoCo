@@ -350,8 +350,8 @@ public class Autostarter {
 
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(packageName, componentName));
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-;            context.startActivity(intent);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -8,4 +8,6 @@
     <color name="grey">#E5E5E5</color>
     <color name="action_bar_color">#F6F6F6</color>
     <color name="white">#FFFFFF</color>
+    <color name="primary_green">#29B299</color>
+    <color name="action_bar_green">#ECFDF9</color>
 </resources>

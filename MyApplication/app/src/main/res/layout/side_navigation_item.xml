@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:paddingStart="15dp"
+    android:gravity="center"
+    android:id="@+id/menu_item"
+    android:clickable="true"
+    android:focusable="true"
+    tools:ignore="RtlSymmetry">
+    
+     <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/safe_2"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|start"
+                android:text="@string/about_us"
+                android:id="@+id/menu_item_name"
+                android:fontFamily="@font/inter_semi_bold"
+                android:textSize="16sp"
+                android:textColor="@color/primary_green"
+                android:background="@drawable/bottom_border"
+                android:layout_marginStart="20dp"/>
+        </LinearLayout>
+</LinearLayout>
