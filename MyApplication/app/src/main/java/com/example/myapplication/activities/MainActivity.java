@@ -1,39 +1,30 @@
 package com.example.myapplication.activities;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.adapters.NavigationMenuListAdapter;
 import com.example.myapplication.databinding.ActivityMainBinding;
 import com.example.myapplication.fragments.HomeFragment;
-import com.example.myapplication.services.ForegroundNotificationService;
-import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding mainBinding;
     private final String TAG = "MAIN_ACTIVITY";
-    String menuList[] = {"About us", "Settings"};
+    String menuList[] = {"Home", "About us", "Settings"};
     Boolean mSlideState = false;
     Toolbar toolbar;
     HomeFragment homeFragment;
@@ -64,21 +55,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void initView() {
 
-        /*mainBinding.navView.setNavigationItemSelectedListener(item ->{
-            switch (item.getItemId()) {
-                case R.id.nav_about_us:
-                    //my appointment intent
-                    break;
-
-                case R.id.nav_settings:
-                    //settings intent;
-                    break;
-            }
-            return false;
-        });*/
-
         NavigationMenuListAdapter navigationMenuListAdapter = new NavigationMenuListAdapter(this, R.layout.side_navigation_item, R.id.menu_item_name, menuList);
         mainBinding.navMenuList.setAdapter(navigationMenuListAdapter);
+        //window = this.getWindow();
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, mainBinding.drawerLayout, R.string.open_drawer, R.string.close_drawer) {
             @Override
@@ -121,11 +100,25 @@ public class MainActivity extends AppCompatActivity {
         if(homeFragment == null) {
             homeFragment = new HomeFragment();
         }
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.main_frame_layout, homeFragment, "HOME FRAGMENT");
-        ft.commit();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_frame_layout, homeFragment, "HOME FRAGMENT")
+                .commit();
 
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_menu_24dp));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mSlideState) {
+            mainBinding.drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }
 

@@ -1,7 +1,9 @@
 package com.example.myapplication.adapters;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +13,16 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.activities.SettingsActivity;
+import com.example.myapplication.fragments.HomeFragment;
 
 public class NavigationMenuListAdapter extends ArrayAdapter {
 
     Context context;
+
     public NavigationMenuListAdapter(@NonNull Context context, int resource, int textViewResourceId, @NonNull Object[] objects) {
         super(context, resource, textViewResourceId, objects);
         this.context = context;
@@ -34,12 +40,22 @@ public class NavigationMenuListAdapter extends ArrayAdapter {
         switch (position) {
             case 0:
                 menuItem.setOnClickListener(v -> {
-                    Toast.makeText(context, "About us clicked", Toast.LENGTH_SHORT).show();
+                    HomeFragment homeFragment = new HomeFragment();
+                    ((AppCompatActivity)context).getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.main_frame_layout, homeFragment, "HOME FRAGMENT")
+                            .addToBackStack(null)
+                            .commit();
                 });
                 break;
             case 1:
                 menuItem.setOnClickListener(v -> {
-                    Toast.makeText(context, "Settings clicked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "About us clicked", Toast.LENGTH_SHORT).show();
+                });
+                break;
+            case 2:
+                menuItem.setOnClickListener(v -> {
+                    Intent settingsIntent = new Intent(context, SettingsActivity.class);
+                    ((AppCompatActivity)context).startActivityForResult(settingsIntent, Activity.RESULT_OK);
                 });
                 break;
         }
