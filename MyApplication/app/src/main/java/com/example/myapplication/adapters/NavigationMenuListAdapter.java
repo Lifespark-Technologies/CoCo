@@ -41,20 +41,11 @@ public class NavigationMenuListAdapter extends ArrayAdapter {
         switch (position) {
             case 0:
                 menuItem.setOnClickListener(v -> {
-                    HomeFragment homeFragment = new HomeFragment();
-                    ((AppCompatActivity)context).getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.main_frame_layout, homeFragment, "HOME FRAGMENT")
-                            .addToBackStack(null)
-                            .commit();
-                });
-                break;
-            case 1:
-                menuItem.setOnClickListener(v -> {
                     Intent settingsIntent = new Intent(context, AboutUsActivity.class);
                     ((AppCompatActivity)context).startActivityForResult(settingsIntent, Activity.RESULT_OK);
                 });
                 break;
-            case 2:
+            case 1:
                 menuItem.setOnClickListener(v -> {
                     Intent settingsIntent = new Intent(context, SettingsActivity.class);
                     ((AppCompatActivity)context).startActivityForResult(settingsIntent, Activity.RESULT_OK);

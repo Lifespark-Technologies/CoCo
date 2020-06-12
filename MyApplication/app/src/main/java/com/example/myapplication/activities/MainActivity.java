@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding mainBinding;
     private final String TAG = "MAIN_ACTIVITY";
-    String menuList[] = {"Home", "About us", "Settings"};
+    String menuList[] = {"About us", "Settings"};
     Boolean mSlideState = false;
     Toolbar toolbar;
     HomeFragment homeFragment;
