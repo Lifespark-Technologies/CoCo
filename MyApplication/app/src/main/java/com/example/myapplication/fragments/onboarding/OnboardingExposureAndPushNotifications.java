@@ -2,18 +2,15 @@ package com.example.myapplication.fragments.onboarding;
 
 import android.Manifest;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,20 +18,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
-import com.example.myapplication.activities.AskPermissions;
+import com.example.myapplication.activities.OnBoardingActivity;
 import com.example.myapplication.activities.MainActivity;
-import com.example.myapplication.utilities.switchGPS;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.PendingResult;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.LocationSettingsRequest;
-import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStates;
-import com.google.android.gms.location.LocationSettingsStatusCodes;
 
 public class OnboardingExposureAndPushNotifications extends Fragment {
 
@@ -103,7 +89,7 @@ public class OnboardingExposureAndPushNotifications extends Fragment {
 
         final LocationSettingsStates states = LocationSettingsStates.fromIntent(data);
         if (requestCode == 1000) {
-            if (resultCode == AskPermissions.RESULT_OK) {
+            if (resultCode == OnBoardingActivity.RESULT_OK) {
                 startActivity(new Intent(getActivity().getApplicationContext(), MainActivity.class));
             }
             else {

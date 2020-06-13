@@ -26,7 +26,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:id="@+id/about_us_back_button"
-                android:src="@drawable/ic_round_arrow_back_ios_24"
+                android:src="@drawable/ic_round_arrow_green_24"
                 android:background="@color/white"
                 tools:ignore="ContentDescription" />
 
@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/secondary_button_rounded"
-                android:id="@+id/share_button"
+                android:id="@+id/donate_button"
                 android:textAllCaps="false"
                 android:text="@string/donate"
                 android:fontFamily="@font/roboto_medium"

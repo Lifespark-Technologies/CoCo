@@ -7,7 +7,7 @@
     android:background="@color/cardview_dark_background"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="com.example.myapplication.activities.AskPermissions">
+    tools:context="com.example.myapplication.activities.OnBoardingActivity">
 
     <FrameLayout
         android:layout_width="match_parent"

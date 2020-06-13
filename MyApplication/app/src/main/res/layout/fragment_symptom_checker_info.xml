@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/whiteSmoke"
+    tools:context=".fragments.symptomChecker.SymptomCheckerInfoFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/covid_symptom_checker"
+                android:fontFamily="@font/lato_bold"
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="9dp"
+                android:textColor="@color/high_contrast"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="16sp"
+                android:textColor="@color/high_contrast"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="9dp"
+                android:text="@string/you_will_answer_a_few_questions" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="16sp"
+                android:textColor="@color/high_contrast"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="9dp"
+                android:text="@string/your_answers_will_not_be_shared" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="16sp"
+                android:textColor="@color/high_contrast"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="9dp"
+                android:text="@string/by_using_this_tool" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="16sp"
+                android:textColor="@color/high_contrast"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="9dp"
+                android:text="@string/recommendations_provided" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="16sp"
+                android:textColor="@color/primary_green"
+                android:layout_marginHorizontal="15dp"
+                android:text="@string/view_the_terms" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/continue_button"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginBottom="35dp"
+            android:background="@drawable/primary_button_rounded"
+            android:textAllCaps="false"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:text="@string/cont"/>
+    </RelativeLayout>
+</FrameLayout>
