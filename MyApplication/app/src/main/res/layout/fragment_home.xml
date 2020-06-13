@@ -109,7 +109,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="40dp"
-                android:background="@drawable/primary_button"
+                android:background="@drawable/primary_button_rounded"
                 android:fontFamily="@font/roboto_regular"
                 android:text="@string/symptom_checker"
                 android:textAllCaps="false"

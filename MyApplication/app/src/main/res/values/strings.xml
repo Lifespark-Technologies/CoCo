@@ -60,5 +60,16 @@
     <string name="we_are_a_group">We are a group of volunteers from all over the world who have worked together on the Safe.t project in the past few months.</string>
     <string name="check_out_our_project">Check out our project website to learn more about our projects.</string>
     <string name="the_safet_project">The Safe.t project to proactively prevent the spread of COVID-19 while preserving privacy.\nProviding exposure alerts to citizens with accurate information &amp; guidelines.\nTracking of symptom progression and identification of asymptomatic + presymptomatic cases.</string>
+    <string name="profile">Profile</string>
+    <string name="you_will_answer_a_few_questions">You will answer a few questions about symptoms, travel and contact you have had with others.</string>
+    <string name="your_answers_will_not_be_shared">"Your answers will not be shared with any 3rd parties without your permission. "</string>
+    <string name="by_using_this_tool">By using this tool, you agree to its terms and that the app will not be liable for any harm relating to your use.</string>
+    <string name="recommendations_provided">Recommendations provided are merely health suggestions, and should not be considered formal medical advice. All users who exhibit symptoms should consult a licensed doctor for further consultation.</string>
+    <string name="view_the_terms">View the terms.</string>
+    <string name="cont">Continue</string>
+    <string name="covid_symptom_checker">COVID-19 Symptom Checker</string>
+    <string name="age">How old are you?</string>
+    <string name="based_on_your_reports">Based on your reported symptoms, you should seek care immediately.</string>
+    <string name="book_appointment_suggestion">"We sugguest you to book a test appointment.  "</string>
 
 </resources>

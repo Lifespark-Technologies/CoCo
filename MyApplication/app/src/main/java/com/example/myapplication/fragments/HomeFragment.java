@@ -10,12 +10,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 
-import com.example.myapplication.R;
-import com.example.myapplication.activities.SymptomChecker;
+import com.example.myapplication.activities.SymptomCheckerActivity;
 import com.example.myapplication.databinding.FragmentHomeBinding;
 import com.example.myapplication.services.ForegroundNotificationService;
 
@@ -55,7 +51,7 @@ public class HomeFragment extends Fragment {
         });
 
         homeBinding.symptomCheckerButton.setOnClickListener(v -> {
-            Intent symptomChecker = new Intent(getActivity().getApplicationContext(), SymptomChecker.class);
+            Intent symptomChecker = new Intent(getActivity().getApplicationContext(), SymptomCheckerActivity.class);
             startActivity(symptomChecker);
         });
 

@@ -3,7 +3,6 @@ package com.example.myapplication.activities;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -12,7 +11,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.widget.FrameLayout;
 
 import com.example.myapplication.R;
@@ -20,9 +18,7 @@ import com.example.myapplication.fragments.onboarding.OnboardingBluetoothFragmen
 import com.example.myapplication.fragments.onboarding.OnboardingExposureAndPushNotifications;
 import com.example.myapplication.utilities.switchGPS;
 
-import java.security.Permission;
-
-public class AskPermissions extends AppCompatActivity  {
+public class OnBoardingActivity extends AppCompatActivity  {
 
     static final int ASK_PERMISSIONS = 10;
     private int permissionCheck;
@@ -39,16 +35,16 @@ public class AskPermissions extends AppCompatActivity  {
         setContentView(R.layout.activity_ask_permissons);
 
         //proceedButton=findViewById(R.id.proceed_button);
-        permissionCheck = ContextCompat.checkSelfPermission(AskPermissions.this, Manifest.permission.ACCESS_FINE_LOCATION);
+        permissionCheck = ContextCompat.checkSelfPermission(OnBoardingActivity.this, Manifest.permission.ACCESS_FINE_LOCATION);
         mainFrameLayout = findViewById(R.id.main_frame_layout);
         onboardingBluetoothFragment = new OnboardingBluetoothFragment();
         onboardingExposureAndPushNotifications = new OnboardingExposureAndPushNotifications();
-        GPSswitch.setContext(AskPermissions.this);
+        GPSswitch.setContext(OnBoardingActivity.this);
         /*prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         Boolean firstRun = prefs.getBoolean("firstRun",false);
 
         if(!firstRun) {
-            startActivity(new Intent(AskPermissions.this, MainActivity.class));
+            startActivity(new Intent(OnBoardingActivity.this, MainActivity.class));
             finish();
         }*/
 
@@ -77,7 +73,7 @@ public class AskPermissions extends AppCompatActivity  {
                 if (permission.equals(Manifest.permission.ACCESS_FINE_LOCATION)) {
                     if (grantResult == PackageManager.PERMISSION_GRANTED) {
                         GPSswitch.enableGPS();
-                        startActivity(new Intent(AskPermissions.this, MainActivity.class));
+                        startActivity(new Intent(OnBoardingActivity.this, MainActivity.class));
                     }
                 }
             }

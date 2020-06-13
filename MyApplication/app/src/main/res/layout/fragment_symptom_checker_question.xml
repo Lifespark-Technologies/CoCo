@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.symptomChecker.SymptomCheckerQuestionFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checker_question"
+                android:text="@string/age"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="20sp"
+                android:textColor="@color/high_contrast"
+                android:layout_marginTop="25dp"
+                android:layout_marginHorizontal="15dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/options"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="18-25 years old"
+                    android:background="@drawable/settings_options"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:padding="15dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textSize="14sp"
+                    android:textColor="@color/high_contrast"
+                    android:id="@+id/option_1" />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="26-35 years old"
+                    android:background="@drawable/settings_options"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:padding="17dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textSize="14sp"
+                    android:textColor="@color/high_contrast"
+                    android:id="@+id/option_2"/>
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="36-45 years old"
+                    android:background="@drawable/settings_options"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:padding="17dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textSize="14sp"
+                    android:textColor="@color/high_contrast"
+                    android:id="@+id/option_3"/>
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="46-55 years old"
+                    android:background="@drawable/settings_options"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:padding="17dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textSize="14sp"
+                    android:textColor="@color/high_contrast"
+                    android:id="@+id/option_4"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginBottom="35dp"
+            android:background="@drawable/primary_button_rounded"
+            android:textAllCaps="false"
+            android:id="@+id/question_continue_button"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:text="@string/cont"/>
+    </RelativeLayout>
+</FrameLayout>
