@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioGroup;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentSymptomCheckerQuestionBinding;
@@ -16,7 +15,7 @@ public class SymptomCheckerQuestionFragment extends Fragment {
 
     FragmentSymptomCheckerQuestionBinding questionBinding;
     SymptomCheckerInfoFragment symptomCheckerInfoFragment;
-    SymptomCheckerSeekCareFragment symptomCheckerSeekCareFragment;
+    SymptomCheckerLowRiskFragment symptomCheckerLowRiskFragment;
 
     public SymptomCheckerQuestionFragment () {
         //Required public constructor
@@ -28,7 +27,7 @@ public class SymptomCheckerQuestionFragment extends Fragment {
         questionBinding = FragmentSymptomCheckerQuestionBinding.inflate(inflater, container,false);
         View view = questionBinding.getRoot();
         symptomCheckerInfoFragment = new SymptomCheckerInfoFragment();
-        symptomCheckerSeekCareFragment = new SymptomCheckerSeekCareFragment();
+        symptomCheckerLowRiskFragment = new SymptomCheckerLowRiskFragment();
 
         questionBinding.options.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
@@ -87,7 +86,7 @@ public class SymptomCheckerQuestionFragment extends Fragment {
 
         questionBinding.questionContinueButton.setOnClickListener( v ->
                 getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.symptom_frame_layout, symptomCheckerSeekCareFragment)
+                .replace(R.id.symptom_frame_layout, symptomCheckerLowRiskFragment)
                 .addToBackStack(null)
                 .commit());
         return view;
