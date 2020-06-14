@@ -20,7 +20,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.SymptomCheckerActivity"></activity>
+        <activity android:name=".activities.FAQActivity"></activity>
+        <activity android:name=".activities.SymptomCheckerActivity" />
         <activity android:name=".activities.AboutUsActivity" />
         <activity android:name=".activities.SettingsActivity" /> <!-- activites -->
         <activity

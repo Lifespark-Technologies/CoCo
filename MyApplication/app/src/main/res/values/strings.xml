@@ -53,7 +53,7 @@
     <string name="enable_bluetooth">Enable Bluetooth</string>
     <string name="enable_autostart">Enable Auto-Start Settings</string>
     <string name="sharing">Sharing is caring</string>
-    <string name="remind_your_family">Remind your family and friends to check their symptoms with the app</string>
+    <string name="remind_your_family">Share the app with friends &amp; family, create a safe community</string>
     <string name="share_btn_text">Share</string>
     <string name="support_us">Support us and donate</string>
     <string name="donate">Donate</string>
@@ -70,6 +70,15 @@
     <string name="covid_symptom_checker">COVID-19 Symptom Checker</string>
     <string name="age">How old are you?</string>
     <string name="based_on_your_reports">Based on your reported symptoms, you should seek care immediately.</string>
-    <string name="book_appointment_suggestion">"We sugguest you to book a test appointment.  "</string>
+    <string name="book_appointment_suggestion">"Book an appointment.  "</string>
+    <string name="based_on_low_risk">Based on your reported symptoms, your risk is low.</string>
+    <string name="feedback">Tell us your feedback</string>
+    <string name="share_app_btn_text">Share the app.</string>
+    <string name="share_results"><![CDATA[Share your symptom checker results with friends & family]]></string>
+    <string name="share_risk_score">Share my risk score.</string>
+    <string name="we_suggest_to_book">We suggest you to book an appointment.</string>
+    <string name="faq">FAQ</string>
+    <string name="how_does_safet_work">How does Safe.t work?</string>
+    <string name="where_is_my_data">Where will my data be stored?</string>
 
 </resources>

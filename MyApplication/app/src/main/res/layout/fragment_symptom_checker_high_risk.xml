@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.symptomChecker.SymptomCheckerSeekCareFragment">
+    tools:context=".fragments.symptomChecker.SymptomCheckerHighRiskFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/based_on_your_reports"
+            android:text="@string/seek_care_immediately"
             android:fontFamily="@font/roboto_medium"
             android:textColor="@color/high_contrast"
             android:textSize="20sp"
@@ -22,19 +22,21 @@
             android:layout_marginVertical="20dp"/>
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/book_appointment_suggestion"
-            android:fontFamily="@font/roboto_regular"
-            android:textSize="16sp"
-            android:textColor="@color/high_contrast"
+            android:text="@string/we_suggest_to_book"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="14sp"
+            android:textColor="@color/high_contrast"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/symptom_checker_yes_book_appointment"
+            android:id="@+id/book_appointment_link"
+            android:text="@string/book_appointment_suggestion"
             android:fontFamily="@font/roboto_medium"
             android:textColor="@color/primary_green"
             android:textSize="16sp"
@@ -42,7 +44,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             app:cardElevation="0dp"
             app:cardCornerRadius="10dp"
             android:layout_marginHorizontal="20dp"
@@ -52,28 +54,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
                 android:orientation="vertical"
                 android:gravity="center">
-
-                <ImageView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    android:src="@drawable/safe_2"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sharing"
-                    android:fontFamily="@font/roboto_medium"
-                    android:textSize="16sp"
-                    android:textColor="@color/high_contrast"/>
 
                 <TextView
                     android:layout_marginTop="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/remind_your_family"
-                    android:textAlignment="center"
+                    android:text="@string/share_results"
                     android:fontFamily="@font/roboto_regular"
                     android:textSize="14sp"
                     android:textColor="@color/high_contrast"/>
@@ -83,9 +72,30 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:background="@drawable/secondary_button_rounded"
-                    android:id="@+id/share_button"
+                    android:id="@+id/share_score_button"
                     android:textAllCaps="false"
-                    android:text="@string/share_btn_text"
+                    android:text="@string/share_risk_score"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textSize="16sp"
+                    android:textColor="@color/primary_green"/>
+
+                <TextView
+                    android:layout_marginTop="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/remind_your_family"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="14sp"
+                    android:textColor="@color/high_contrast"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/secondary_button_rounded"
+                    android:id="@+id/share_app_button"
+                    android:textAllCaps="false"
+                    android:text="@string/share_app_btn_text"
                     android:fontFamily="@font/roboto_medium"
                     android:textSize="16sp"
                     android:textColor="@color/primary_green"/>
