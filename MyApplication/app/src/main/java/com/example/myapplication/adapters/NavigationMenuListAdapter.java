@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
 import com.example.myapplication.activities.AboutUsActivity;
+import com.example.myapplication.activities.FAQActivity;
 import com.example.myapplication.activities.SettingsActivity;
 import com.example.myapplication.fragments.HomeFragment;
 
@@ -50,6 +51,21 @@ public class NavigationMenuListAdapter extends ArrayAdapter {
                     Intent settingsIntent = new Intent(context, SettingsActivity.class);
                     ((AppCompatActivity)context).startActivityForResult(settingsIntent, Activity.RESULT_OK);
                 });
+                break;
+
+            case 2:
+
+                break;
+
+            case 3:
+                menuItem.setOnClickListener(v -> {
+                    Intent faqIntent = new Intent(context, FAQActivity.class);
+                    ((AppCompatActivity)context).startActivityForResult(faqIntent, Activity.RESULT_OK);
+                });
+                break;
+
+            case 4:
+
                 break;
         }
         return super.getView(position, view, parent);

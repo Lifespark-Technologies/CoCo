@@ -77,5 +77,8 @@
     <string name="share_results"><![CDATA[Share your symptom checker results with friends & family]]></string>
     <string name="share_risk_score">Share my risk score.</string>
     <string name="we_suggest_to_book">We suggest you to book an appointment.</string>
+    <string name="faq">FAQ</string>
+    <string name="how_does_safet_work">How does Safe.t work?</string>
+    <string name="where_is_my_data">Where will my data be stored?</string>
 
 </resources>
