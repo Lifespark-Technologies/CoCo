@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/white"
+    tools:context="com.example.myapplication.activities.OnboardingActivity">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/onboarding_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="7dp"
+        android:id="@+id/skip_button"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/skip"
+        android:letterSpacing="0.15"
+        android:textColor="@color/primary_green"
+        android:fontFamily="@font/roboto_regular"
+        android:background="@android:color/transparent"
+        android:textSize="16sp"/>
+    
+    <LinearLayout
+        android:id="@+id/onboarding_indicators"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/next_button"
+        android:text="@string/next_button_text"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="85dp"
+        android:layout_marginEnd="25dp"
+        android:fontFamily="@font/roboto_regular"
+        android:textColor="@color/primary_green"
+        android:textAllCaps="false"
+        android:letterSpacing="0.1"
+        android:textSize="16sp"
+        android:background="@android:color/transparent"
+        tools:ignore="RelativeOverlap" />
+</RelativeLayout>

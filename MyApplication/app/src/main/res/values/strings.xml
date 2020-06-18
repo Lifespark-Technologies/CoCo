@@ -80,5 +80,9 @@
     <string name="faq">FAQ</string>
     <string name="how_does_safet_work">How does Safe.t work?</string>
     <string name="where_is_my_data">Where will my data be stored?</string>
+    <string name="contact_tracing_onboarding">Detects places where people gather &amp; highlight you the high risk area near you</string>
+    <string name="skip">Skip</string>
+    <string name="data_safe">Your data will be securely stored in the app</string>
+    <string name="self_report"><![CDATA[Self reporting & booking appointment if you are in high risk of geting the virus]]></string>
 
 </resources>

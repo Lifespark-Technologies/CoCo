@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             SharedPreferences.Editor edit = prefs.edit();
             edit.putBoolean(getString(R.string.pref_previously_started), Boolean.TRUE);
             edit.apply();
-            startActivity(new Intent(MainActivity.this, OnBoardingActivity.class));
+            startActivity(new Intent(MainActivity.this, OnboardingActivity.class));
         } else {
             initView();
             toolbar.setVisibility(View.VISIBLE);

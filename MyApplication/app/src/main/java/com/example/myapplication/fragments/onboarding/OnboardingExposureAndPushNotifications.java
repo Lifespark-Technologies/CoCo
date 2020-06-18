@@ -18,7 +18,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
-import com.example.myapplication.activities.OnBoardingActivity;
+import com.example.myapplication.activities.OnboardingActivity;
 import com.example.myapplication.activities.MainActivity;
 import com.google.android.gms.location.LocationSettingsStates;
 
@@ -89,7 +89,7 @@ public class OnboardingExposureAndPushNotifications extends Fragment {
 
         final LocationSettingsStates states = LocationSettingsStates.fromIntent(data);
         if (requestCode == 1000) {
-            if (resultCode == OnBoardingActivity.RESULT_OK) {
+            if (resultCode == OnboardingActivity.RESULT_OK) {
                 startActivity(new Intent(getActivity().getApplicationContext(), MainActivity.class));
             }
             else {
