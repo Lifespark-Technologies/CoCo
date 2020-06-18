@@ -1,4 +1,4 @@
-package com.example.myapplication.autostartPermissions;
+package com.example.myapplication.utilities;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Autostarter {
+public class AutostarterPermissions {
 
     /***
      * Xiaomi

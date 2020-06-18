@@ -20,7 +20,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.FAQActivity"></activity>
+        <activity android:name=".activities.AskPermissions"></activity>
+        <activity android:name=".activities.FAQActivity" />
         <activity android:name=".activities.SymptomCheckerActivity" />
         <activity android:name=".activities.AboutUsActivity" />
         <activity android:name=".activities.SettingsActivity" /> <!-- activites -->
@@ -33,7 +34,7 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.OnBoardingActivity" />
+        <activity android:name=".activities.OnboardingActivity" />
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/app_name"
