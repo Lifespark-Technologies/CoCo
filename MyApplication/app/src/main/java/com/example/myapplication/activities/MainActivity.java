@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         reportBtn = findViewById(R.id.report_button);
         registerBtn = findViewById(R.id.register_button);
         autostart = findViewById(R.id.button);

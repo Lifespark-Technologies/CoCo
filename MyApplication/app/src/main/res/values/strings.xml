@@ -5,4 +5,11 @@
     <string name="name">Name</string>
     <string name="submit">Submit</string>
     <string name="location_data">Location Data</string>
+    <string name="foreground_notification_title">Corona Control is running</string>
+    <string name="foreground_notification_ble_off">Corona Control needs Bluetooth to be turned on</string>
+    <string name="preference_file_key">org.covidwatch.android.PREFERENCE_FILE_KEY</string>
+<!--    check this out-->
+
+    <string name="preference_is_temporary_contact_number_logging_enabled">preference_is_temporary_contact_number_logging_enabled</string>
+    <string name="preference_last_temporary_contact_numbers_download_date">preference_last_temporary_contact_numbers_download_date</string>
 </resources>

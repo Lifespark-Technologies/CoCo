@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: cafe.cryptography:ed25519-elisabeth:0.1.0@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cafe.cryptography/ed25519-elisabeth/0.1.0/534c70f4a52f8c134fc3f84e96fe525390eec270/ed25519-elisabeth-0.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cafe.cryptography/ed25519-elisabeth/0.1.0/44a236d8963b5477ed4b2567335041406dd5f718/ed25519-elisabeth-0.1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cafe.cryptography/ed25519-elisabeth/0.1.0/d20883af0b405df5bbe2abae952426a99541084e/ed25519-elisabeth-0.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
