@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: org.nield:kotlin-statistics:1.2.1@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.nield/kotlin-statistics/1.2.1/dc95b46918f2fb4b731d0be2032e0d8081ec585/kotlin-statistics-1.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.nield/kotlin-statistics/1.2.1/36f4ae73f25123a281afe8bf13e82684813aafa3/kotlin-statistics-1.2.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.nield/kotlin-statistics/1.2.1/b7008885ddd4dd15fac5985e74b020ca7de7a88/kotlin-statistics-1.2.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

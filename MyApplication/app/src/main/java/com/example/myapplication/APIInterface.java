@@ -10,4 +10,5 @@ public interface APIInterface {
 
     @POST("INDEX")
     Call<LatLongModel> createPost(@Body LatLongModel latLongModel);
+
 }
