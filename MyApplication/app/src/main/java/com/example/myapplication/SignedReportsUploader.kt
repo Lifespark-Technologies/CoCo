@@ -103,7 +103,7 @@ class SignedReportsUploader(
 
     @Throws(IOException::class)
     private fun submitReport(json: String): Boolean {
-        val apiUrl = BuildConfig.API_URL
+        val apiUrl = BuildConfig.FIREBASE_CLOUD_FUNCTIONS_ENDPOINT
         val url = "$apiUrl/submitReport"
         val body = json.toRequestBody(contentType())
         val request = Request.Builder()

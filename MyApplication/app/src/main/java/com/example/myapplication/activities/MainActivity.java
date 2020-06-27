@@ -18,6 +18,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+
+
 import com.example.myapplication.R;
 import com.example.myapplication.autostartPermissions.autostarter;
 import com.google.android.gms.common.ConnectionResult;
@@ -175,6 +177,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                             .getLocationSettingsStates();
                     switch (status.getStatusCode()) {
                         case LocationSettingsStatusCodes.SUCCESS:
+//                            CoronaControlApplication coronaControlApplication=new CoronaControlApplication();
+//                            coronaControlApplication.onCreate();
+                            //this code is showing problems
+                            //Tcn starts here
                             // All location settings are satisfied. The client can
                             // initialize location
                             // requests here.
@@ -197,6 +203,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                             // no way to fix the
                             // settings so we won't show the dialog.
                             break;
+                        default:
+                            throw new IllegalStateException("Unexpected value: " + status.getStatusCode());
                     }
                 }
             });
